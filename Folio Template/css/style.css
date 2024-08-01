@@ -435,13 +435,15 @@ nav ul li a {
 #portfolio .portfolio-container {
   display: inline-block;
   margin-bottom: 50px;
-  width: 100%;
+  width:100%;
 }
 
 .portfolio-thumbnail {
   margin-bottom: 30px;
   overflow: hidden;
   min-height: 260px;
+  /* max-height: 260px */
+  max-height: 340px;
 }
 
 .portfolio-thumbnail img {
