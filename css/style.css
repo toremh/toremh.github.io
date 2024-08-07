@@ -448,10 +448,30 @@ nav ul li a {
   min-height: 260px;
   /* max-height: 260px */
   max-height: 340px;
+  /* position:relative; */
 }
 
 .portfolio-thumbnail img {
   max-width: 100%;
+  /* opacity: 0.5; */
+}
+
+.thumbnail-title{
+  /* margin: 0,100px,100px,0; */
+  /* margin-bottom: 30px; */
+  background:rgba(0,0,0,0.6);
+  width:92.5%;
+  height:100%;
+  top:0;
+  /* left:0; */
+  position: absolute;
+  align-items: center;
+  opacity:0;
+  transition:0.5s;
+}
+
+.thumbnail-title:hover{
+  opacity:1;
 }
 
 /*-----------------------------------------------------------------------------------*/

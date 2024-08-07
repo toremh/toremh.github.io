@@ -79,7 +79,7 @@ $(document).ready(function() {
 
   $(function() {
     typed.typed({
-      strings: ["An Engineer.", "A Designer.", "A Builder.", "A Martial Artist.", "A Guitarist."],
+      strings: ["An Engineer.", "A Designer.", "A Builder.", "A Thinker.", "A Strategist.", "A Maker","A Martial Artist.", "A Guitarist."],
       typeSpeed: 100,
       loop: true,
     });
