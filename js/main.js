@@ -155,3 +155,16 @@ $(window).load(function(){
   });
 
 })
+
+// ========================================================================= //
+//  My shitty tab switcher :]]
+// ========================================================================= //
+
+$('.tab-switcher a').click(function(e) {
+      e.preventDefault();
+      var selector = $(this).attr('rel');
+      $('.info.visible').addClass('hide').removeClass('visible');
+      $(selector).addClass('visible').removeClass('hide');
+      // console.log(selector);
+      // console.log("test");
+  });

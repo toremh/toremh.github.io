@@ -474,6 +474,32 @@ nav ul li a {
   opacity:1;
 }
 
+.thumbnail-title h1 {
+  /* transition:0s; */
+  color: #b8a07e;
+  /* -moz-transition: all 0s ease-in-out 0s;
+  -ms-transition: all 0s ease-in-out 0s;
+  -o-transition: all 0s ease-in-out 0s;
+  -webkit-transition: all 0s ease-in-out 0s;
+  transition: all 0s ease-in-out 0s; */
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*  Project content
+/*-----------------------------------------------------------------------------------*/
+
+#project-info{
+  background: #f7f7f7;
+  padding-bottom: 80px;
+}
+
+.info{
+  text-align: center;
+}
+
+.hide{
+  display:none;
+}
 /*-----------------------------------------------------------------------------------*/
 /*  Journal
 /*-----------------------------------------------------------------------------------*/
@@ -546,7 +572,7 @@ nav ul li a {
 #contact {
   height: auto;
   width: 100%;
-  background: #f7f7f7;
+  /* background: #f7f7f7; */
 }
 
 .contact-details {
@@ -608,7 +634,7 @@ nav ul li a {
 /*-----------------------------------------------------------------------------------*/
 
 #footer {
-  /* background: #f7f7f7; */
+  background: #f7f7f7;
   padding-top: 50px;
   padding-bottom: 50px;
 }
