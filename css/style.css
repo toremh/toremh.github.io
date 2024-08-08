@@ -573,7 +573,14 @@ nav ul li a {
   height: auto;
   width: 100%;
   /* background: #f7f7f7; */
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
+
+/* #contact .paddsection{
+  padding-top: 50px;
+  padding-bottom: 50px;
+} */
 
 .contact-details {
   list-style: none;
