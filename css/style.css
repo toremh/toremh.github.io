@@ -456,10 +456,10 @@ nav ul li a {
   /* opacity: 0.5; */
 }
 
-.thumbnail-title{
+.thumbnail-hover{
   /* margin: 0,100px,100px,0; */
   /* margin-bottom: 30px; */
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.65);
   width:92.5%;
   height:100%;
   top:0;
@@ -470,11 +470,11 @@ nav ul li a {
   transition:0.5s;
 }
 
-.thumbnail-title:hover{
+.thumbnail-hover:hover{
   opacity:1;
 }
 
-.thumbnail-title h1 {
+.thumbnail-hover h1 {
   /* transition:0s; */
   color: #b8a07e;
   /* -moz-transition: all 0s ease-in-out 0s;
@@ -483,6 +483,17 @@ nav ul li a {
   -webkit-transition: all 0s ease-in-out 0s;
   transition: all 0s ease-in-out 0s; */
 }
+
+.thumbnail-title{
+  position:absolute;
+  /* top: 25%; */
+  /* left: 20% */
+  width: 100%;
+  text-align: center;
+  padding:50px;
+  /* padding-right: 50px; */
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /*  Project content
