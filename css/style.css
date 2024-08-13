@@ -459,7 +459,7 @@ nav ul li a {
 .thumbnail-hover{
   /* margin: 0,100px,100px,0; */
   /* margin-bottom: 30px; */
-  background:rgba(0,0,0,0.65);
+  background:rgba(0,0,0,0.75);
   width:92.5%;
   height:100%;
   top:0;
@@ -475,6 +475,16 @@ nav ul li a {
 }
 
 .thumbnail-hover h1 {
+  /* transition:0s; */
+  color: #b8a07e;
+  /* -moz-transition: all 0s ease-in-out 0s;
+  -ms-transition: all 0s ease-in-out 0s;
+  -o-transition: all 0s ease-in-out 0s;
+  -webkit-transition: all 0s ease-in-out 0s;
+  transition: all 0s ease-in-out 0s; */
+}
+
+.thumbnail-hover h3 {
   /* transition:0s; */
   color: #b8a07e;
   /* -moz-transition: all 0s ease-in-out 0s;
