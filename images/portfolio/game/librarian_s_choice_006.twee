@@ -1,0 +1,3006 @@
+:: StoryTitle
+librarian's choice 006
+
+
+:: StoryData
+{
+  "ifid": "4bc2b5d5-90bb-4470-8e3b-06a8b003a529",
+  "format": "Harlowe",
+  "format-version": "3.3.5",
+  "start": "start",
+  "tag-colors": {
+    "menu": "orange",
+    "header": "green",
+    "startup": "green"
+  },
+  "zoom": 1
+}
+
+
+:: \ Frustration {"position":"2050,1650","size":"100,100"}
+.
+.
+.
+
+Then please leave
+
+[[Fine, fine, we'll do it your way -> Thank you]]
+
+
+:: \ Is there nothing at all that interests you? {"position":"5700,1100","size":"100,100"}
+"Well actually... No, never mind. Just tell me about art pricing and I’ll give you a good review."
+
+[[Art valuation depends fundamentally on what people will pay. The most valuable are famous pieces by famous artists, usually with a history, or some deeper meaning. What was your name, by the way?]]
+
+[[Pardon me, I don’t believe I caught your name. My job here is to give book recommendations, I couldn’t really comment on art valuation.]]
+
+
+
+
+:: \ Thank you {"position":"1850,1650","size":"100,100"}
+//Ah, thank you! Now where were we//.
+
+[[Return|Look at the visitor]]
+
+
+:: "..." {"position":"3500,4400","size":"100,100"}
+“You are insufferable, and terrible at your job.”
+
+[[Continue|AlastorLeaves]] 
+
+(set: $alastorFavour to it - 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $alastorFavour to it + 1)]
+
+
+:: "Hello" {"position":"5500,3300","size":"100,100"}
+"Just 'Hello', no 20 questions today?"
+
+[[Well you’re the detective, not me, I’m just your friendly neighborhood Librarian.|“Hello again Mr. Detective, what can I do for you today?”]]
+
+[[Nope, not in the mood today. Do you want a book?|BruceContd4]]
+
+
+:: "Yes actually..." {"position":"6200,3800","size":"100,100"}
+“Yes, actually. Evelyn mentioned to me that she’ll be attending an upcoming art exhibition with a lot of famous pieces. That could be their target.”
+
+[[Continue|BruceContd8]]
+
+(set: $bruceKnowsLocation to true)
+
+
+:: Abstract Art [menu] {"position":"2700,2000","size":"100,100"}
+Abstract art uses visual language of shape, form, color and line to create a composition which may exist with a degree of independence from visual references in the world.
+
+Western art had been, from the Renaissance up to the middle of the 19th century, underpinned by the logic of perspective and an attempt to reproduce an illusion of visible reality. By the end of the 19th century many artists felt a need to create a new kind of art which would encompass the fundamental changes taking place in technology, science and philosophy. The sources from which individual artists drew their theoretical arguments were diverse, and reflected the social and intellectual preoccupations in all areas of Western culture at that time.
+
+Abstract art, non-figurative art, non-objective art, and non-representational art are all closely related terms. They have similar, but perhaps not identical, meanings.
+
+Abstraction indicates a departure from reality in depiction of imagery in art. This departure from accurate representation can be slight, partial, or complete. Abstraction exists along a continuum. Even art that aims for verisimilitude of the highest degree can be said to be abstract, at least theoretically, since perfect representation is impossible. Artwork which takes liberties, e.g. altering color or form in ways that are conspicuous, can be said to be partially abstract. Total abstraction bears no trace of any reference to anything recognizable. In geometric abstraction, for instance, one is unlikely to find references to naturalistic entities. Figurative art and total abstraction are almost mutually exclusive. But figurative and representational (or realistic) art often contain partial abstraction.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: AlastorBadContd1 {"position":"3300,4200","size":"100,100"}
+“Oh. I see, never mind then. It appears I misread the situation.”
+
+[[“Wait, you can read?”|AlastorLeaves]]
+
+(set: $alastorFavour to it - 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $alastorFavour to it + 1)]
+
+
+:: AlastorBadEnct {"position":"5900,1350","size":"100,100"}
+"Fascinating. Not really though. Goodbye."
+
+[[Finish Day|Day1End]]
+
+
+:: AlastorBadEnct2 {"position":"6100,2200","size":"100,100"}
+“Meaning of art? Do you suppose there is any”
+
+[[“Well, every person can find their own meaning in it. But I think that art can be meaningful as a means of expressing ideas in a fundamentally human way.”]]
+
+(set: $alastorFavour to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $alastorFavour to it - 1)]
+
+
+:: AlastorBadEnct3 {"position":"6100,2400","size":"100,100"}
+“I’m looking for a book. I was hoping you could help me find it.”
+
+[[“I’m surprised you’re back. I guess that last book must have been inspiring, has it convinced you of the meaning of art?”|AlastorBadEnct2]]
+
+[[“Alright then, what are you looking for?”|AlastorContd2]]
+
+
+:: AlastorBadEnct4 {"position":"6100,2600","size":"100,100"}
+“Yes, me again. Isn’t it you job to cater to customers? Regardless, I am here for a book.”
+
+[[“Alright then, what are you looking for?”|AlastorContd2]]
+
+
+:: AlastorBadEnct5 {"position":"6600,2600","size":"100,100"}
+“You really aren’t very good at your job are you. I would have thought basic literacy would be a requirement to be a librarian.”
+
+[[Continue|AlastorContd4]] 
+
+
+:: AlastorBadEnct6 {"position":"2200,3400","size":"100,100"}
+“Very well, why not. But quickly, I must depart. Give me a book on art that portrays life differently than we live it.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Constructivism|AlastorContd5]]
+
+[[Recommend Romanticism|AlastorContd5]]
+
+[[Recommend Modernism|AlastorContd5]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: AlastorContd1 {"position":"5700,1500","size":"100,100"}
+"You may call me Alastor. This seem rather pointless, but I suppose you’d like to recommend me one of your books?"
+
+You nod you head, "Here, take this. I’m not sure what you’re looking for, but I’m sure you’ll enjoy it."
+
+[[Check Library|Library Collection]]
+(if: $niceToAlastor is true)[[Reccomend Brutalism|AlastorGoodEnct]] 
+(if: $niceToAlastor is false)[[Reccomend Brutalism|AlastorBadEnct]]
+(if: $niceToAlastor is true)[[Reccomend Surrealism|AlastorGoodEnct]] 
+(if: $niceToAlastor is false)[[Reccomend Surrealism|AlastorBadEnct]]
+(if: $niceToAlastor is true)[[Reccomend Cubism|AlastorGoodEnct]] 
+(if: $niceToAlastor is false)[[Reccomend Cubism|AlastorBadEnct]]
+
+(set: $collectedBooks to it + (a:'On Brutalism'))
+(set: $collectedBooks to it + (a:'Surreal Surrealism'))
+(set: $collectedBooks to it + (a:'Cubism and its many facets'))
+
+
+:: AlastorContd2 {"position":"6500,2400","size":"100,100"}
+Alastor takes out a note and glances at it
+
+“I am looking for a specific book this time, no need for guesswork. The book is called Artistic Symbolism. I know it’s currently in stock.”
+
+“Oh, you’re looking for Artistic Symbolism? Sure thing, here it is”
+
+[[Check Library|Library Collection]]
+
+[[Give Artistic Symbolism|AlastorGoodEnct3]]
+
+[[Give Fauvism|AlastorBadEnct5]]
+
+[[Recommend On Industrial Revolution art|AlastorBadEnct5]]
+
+(set: $collectedBooks to it + (a:'Artistic Symbolism'))
+(set: $collectedBooks to it + (a:'Fauvism'))
+(set: $collectedBooks to it + (a:'On Industrial Revolution art'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+
+:: AlastorContd3 {"position":"6900,2400","size":"100,100"}
+//And with that, your third day comes to an end//
+
+[[Continue|Day 4 start]]
+
+
+:: AlastorContd4 {"position":"6800,2600","size":"100,100"}
+“Ah Ah here it is. Artistic Symbolism I’ll take that. It’s almost as if you thought your recommendations mattered to me.”
+
+[[Continue|AlastorContd3]]
+
+(set: $bookHandedOver to true)
+
+
+
+:: AlastorContd5 {"position":"2400,3200","size":"100,100"}
+“Thank you. I have a feeling this will be exactly what I was looking for. Goodbye”
+
+(if: $coraLessStress > 0)[ [[Continue|CoraGoodEnct2]]](else:)[ [[Continue|CoraBadEnct2]]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+(set: $alastorFavour to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $alastorFavour to it - 1)]
+
+
+:: AlastorContd6 {"position":"2900,4100","size":"100,100"}
+“Hello. I am here to return this book and thank you for your recommendations up until now. Not that they were particularly good, but thank you regardless.”
+
+[[“Well, this my job after all. I’m happy to help.”]]
+
+[[“Ok, but... When?”]]
+
+
+:: AlastorEnct1 {"position":"5300,1300","size":"100,100"}
+//As you bid goodbye to Darien you spot someone else out the corner of your eyes.
+
+A figure in a trench coat enters and walks towards you, barely sparing a glance for the books and artwork lining the walls. His face is shrouded in shadow until he draws near. You notice this is very dramatic, but rather odd as he wears no hood and the library is quite well lit.
+//
+“Hello. You are knowledgeable about artwork, correct? I would like to know about the valuation of art pieces. What makes art valuable, for instance, what is the art in this particular library worth?
+
+//He seems like a slightly ominous fellow, but might as well give him the benefit of the doubt//
+
+[[Well, like they say, it’s in the eye of the beholder isn’t it. A piece of art could be a priceless treasure to one person and completely worthless to another. I’d suggest taking a look at different styles to find something that speaks to you.]]
+
+[[Art valuation depends fundamentally on what people will pay. The most valuable are famous pieces by famous artists, usually with a history, or some deeper meaning. What was your name, by the way?]]
+
+[[Pardon me, I don’t believe I caught your name. My job here is to give book recommendations, I couldn’t really comment on art valuation.]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+
+:: AlastorEnct2 {"position":"5900,2400","size":"100,100"}
+//The day is nearly over, and you’re just about ready to go home. It’s been a good day, but a long one, and you’re ready for some rest. Suddenly, you notice a dark figure striding forwards. It’s Alastor, with his trademark trench coat, with an expression as intense as ever.
+//
+“Hello. We meet again, Librarian.”
+
+(if: $alastorFavour > 0)[ [[“Hello. Back to talk about the meaning of art again?”|AlastorGoodEnct2]]] (else:) [ [[“Hello. Back to talk about the meaning of art again?”|AlastorBadEnct2]]]
+
+(if: $alastorFavour > 0)[ [[“Hello, what can I do for you today?”|AlastorGoodEnct2]]] (else:) [ [[“Hello, what can I do for you today?”|AlastorBadEnct3]]]
+
+(if: $alastorFavour > 0)[ [[“Oh great, it’s you again.”|AlastorBadEnct3]]] (else:) [ [["Oh great, it’s you again"|AlastorBadEnct4]]]
+
+
+
+:: AlastorEnct3 {"position":"2000,3200","size":"100,100"}
+//You look up to see a now familiar trench coat gliding towards you. And Alastor is here too, underneath it. Today however, he seems to have lost some of his usual brusqueness; his strides seem less purposeful and he looks a little distracted, as if there are a great many things on his mind. As he approaches, he turns to face you.//
+
+He hands back Artistic Symbolism. You notice that there is not longer a note between the pages
+
+“I am here to return this. Thank you. Goodbye.”
+
+[[“Wait, take this book. Maybe it’ll make your brain grow.”]]
+
+(if: $alastorFavour > 0) [ [[“You look troubled, can I offer you a nice book for these trying times?”]]](else:) [ [[“You look troubled, can I offer you a nice book for these trying times?”|AlastorBadEnct6]]]
+
+
+
+:: AlastorEnct4 {"position":"2675,4000","size":"100,100"}
+//What a small world it is, you think to yourself. What a complete coincidence that so many of your returning customers happen to have outside relations that are affected by simple book recommendations. What a world.
+
+Your musings are interrupted by the appearance of Alastor, clad once again in his trench coat. He seems intensely conflicted, but there’s an air of finality about him. It’s clear he intends to talk to you, perhaps for the last time.//
+
+(if: $alastorFavour > 1)[ [[Continue|AlastorGoodContd1]]] (else:) [ [[Continue"|AlastorContd6]]]
+
+
+:: AlastorGoodContd1 {"position":"2900,3900","size":"100,100"}
+“Greetings, bookkeeper, I’m here to return this. I also wanted to thank you for all of your recommendations.”
+
+[[“Of course, happy to help. You seem to have a lot on your mind, is there anything else you came in for?”]]
+
+[[“Well, this my job after all. I’m happy to help.”]]
+
+
+:: AlastorGoodEnct {"position":"5900,1200","size":"100,100"}
+"Thank you, you’ve been most useful. Perhaps this book might even pique my interest as well. Good day"
+
+[[Finish Day|Day1End]]
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+
+:: AlastorGoodEnct2 {"position":"6100,2000","size":"100,100"}
+“Actually I couldn’t help thinking about what you said last time, about art being meaningful.”
+
+[[“I’m glad to hear it’s sparked your imagination. Do you still think art all arbitrary and useless?”]]
+
+[[“Actually I decided I don’t care, can we get this over with?”]]
+
+
+
+:: AlastorGoodEnct3 {"position":"6700,2300","size":"100,100"}
+“Thank you. I appreciate your help.”
+
+[[Continue|AlastorContd3]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+(set: $bookHandedOver to true)
+
+
+
+:: AlastorLastAnswer {"position":"3500,4000","size":"100,100"}
+“I see. I appreciate that. Thank you for everything.”
+
+[[Continue|AlastorLeaves]]
+
+
+:: AlastorLeaves {"position":"3500,4200","size":"100,100"}
+“Goodbye. We won’t meet again.” and with that, Alastor walks out of the library and your rather hectic day comes to end
+
+[[Continue|Day 7 start]]
+
+
+
+:: Alright, let’s get this over with (Remembered) {"position":"3200,1475","size":"100,100"}
+"Okay, wow, I see you’re in a hurry. I’m looking for biographies of famous artists for my project. Which book should I get?"
+
+[[Check Library|Library Collection]]
+
+[[Recommend Salvador Dali]]
+
+[[Recommend Picasso]]
+
+[[Recommend Da Vinci]]
+
+(set: $collectedBooks to it + (a:'Salvador Dali Bio'))
+(set: $collectedBooks to it + (a:'Picasso Bio'))
+(set: $collectedBooks to it + (a:'Da Vinci Bio'))
+
+(set: $libraryScore to it + 0)
+
+
+:: Always happy to help. Is this more inspiration for your paintings? {"position":"1700,3000","size":"100,100"}
+“Well yes, but I’m also trying to learn more about famous art and artists because of a big exhibition coming up. I’m not sure if I mentioned it already, it’s meant to be sort of private, but I’m so excited! There’s going to be so many cool pieces on display, there’s actually even some from Renoir!”
+
+[[“Wow that’s so cool. Have fun at your exhibition, and bye for now.”|EvelynGoodbye]]
+
+
+:: Are you looking for a book about him? {"position":"3400,1075","size":"100,100"}
+"Actually I’ve already done a project on him so I’ll need to find something else. Something abstract, but with a twist, maybe with a fwe surreal objects or motifs... Sorry I’m rambling."
+
+[[Continue|FlorianContd1]]
+
+
+:: Art valuation depends fundamentally on what people will pay. The most valuable are famous pieces by famous artists, usually with a history, or some deeper meaning. What was your name, by the way? {"position":"5500,1300","size":"100,100"}
+"My name is Alastor. Thank you for the information. While I’m here, I suppose I might as well ask for a book. Reading about art seems like a pastime for art snobs but who knows. Are there any books you’re particularly fond of?"
+
+You nod you head, "Here, take this. I’m not sure what you’re looking for, but I’m sure you’ll enjoy it."
+
+[[Check Library|Library Collection]]
+(if: $niceToAlastor is true)[[Recommend Brutalism|AlastorGoodEnct]] 
+(if: $niceToAlastor is false)[[Recommend Brutalism|AlastorBadEnct]]
+(if: $niceToAlastor is true)[[Recommend Surrealism|AlastorGoodEnct]] 
+(if: $niceToAlastor is false)[[Recommend Surrealism|AlastorBadEnct]]
+(if: $niceToAlastor is true)[[Recommend Cubism|AlastorGoodEnct]] 
+(if: $niceToAlastor is false)[[Recommend Cubism|AlastorBadEnct]]
+
+(set: $niceToAlastor to true)
+
+(set: $collectedBooks to it + (a:'On Brutalism'))
+(set: $collectedBooks to it + (a:'Surreal Surrealism'))
+(set: $collectedBooks to it + (a:'Cubism and its many facets'))
+
+
+
+
+
+:: Artistic Symbolism [menu] {"position":"6500,2000","size":"100,100"}
+''Artistic Symbolism''
+Symbolism was a late 19th-century art movement of French and Belgian origin in poetry and other arts seeking to represent absolute truths symbolically through language and metaphorical images, mainly as a reaction against naturalism and realism.
+
+''In Painting''
+Symbolist painting was one of the main artistic manifestations of symbolism, a cultural movement that emerged at the end of the 19th century in France and developed in several European countries. In painting, symbolism was a fantastic and dreamlike style that emerged as a reaction to the naturalism of the realist painting and impressionist trends, whose objectivity and detailed description of reality were opposed by subjectivity and the depiction of the occult and the irrational, as opposed to representation, evocation, or suggestion. Just as in poetry the rhythm of words served to express a transcendent meaning, in painting they sought ways for color and line to express ideas. In this movement, all the arts were related and thus the painting of Redon was often compared to the poetry of Baudelaire or the music of Debussy.[1]
+
+You had noticed a note stuck between the pages. You can’t quite figure out what it means, it looked to be gibberish, just strings of numbers and letters.
+
+(if: $noteCopied is true)[ Thankfully you copied down the note]
+
+(link-goto: "Return", $lastPassage)
+
+(if: $bookHandedOver is false)[ [[Copy note down?]]]
+
+
+
+:: Basics of Impressionism [menu] {"position":"1000,1900","size":"100,100"}
+Impressionism was a 19th-century art movement characterized by relatively small, thin, yet visible brush strokes, open composition, emphasis on accurate depiction of light in its changing qualities (often accentuating the effects of the passage of time), ordinary subject matter, unusual visual angles, and inclusion of movement as a crucial element of human perception and experience. Impressionism originated with a group of Paris-based artists whose independent exhibitions brought them to prominence during the 1870s and 1880s.
+
+The Impressionists faced harsh opposition from the conventional art community in France. The name of the style derives from the title of a Claude Monet work, Impression, soleil levant (Impression, Sunrise), which provoked the critic Louis Leroy to coin the term in a satirical review published in the Parisian newspaper Le Charivari. The development of Impressionism in the visual arts was soon followed by analogous styles in other media that became known as impressionist music and impressionist literature.
+
+Source: Wikipedia
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Biography of Claude Monet [menu] {"position":"800,1900","size":"100,100"}
+Bio: Oscar-Claude Monet (14 November 1840 – 5 December 1926) was a French painter and founder of impressionist painting who is seen as a key precursor to modernism, especially in his attempts to paint nature as he perceived it. During his long career, he was the most consistent and prolific practitioner of impressionism's philosophy of expressing one's perceptions before nature, especially as applied to plein air (outdoor) landscape painting. The term "Impressionism" is derived from the title of his painting Impression, soleil levant, exhibited in 1874 (the "exhibition of rejects") initiated by Monet and his associates as an alternative to the Salon.
+
+Personal note: Monet had a challenging personal life, marked by financial struggles and the death of his first wife Camille. He also suffered from cataracts, which greatly affected his ability to paint later in life. Despite these challenges, Monet persisted in his work and, in later life, was able to enjoy some success and recognition.
+
+Work: Monet's approach to painting sought to capture the transient effects of sunlight and color. His innovative technique of painting the same scene at different times of the day was revolutionary, and his Water Lilies series, Haystacks, Rouen Cathedral, and the Houses of Parliament series remain iconic of the Impressionist movement. His work "Impression, Sunrise" (Impression, Soleil Levant) even gave the Impressionist movement its name.
+
+Monet's method was meticulous and sometimes necessitated painting outdoors for hours at a time, a practice known as en plein air. He strived to capture the ephemeral nature of light in his paintings, a characteristic that would come to define his and others' Impressionist works.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: BruceBad2 {"position":"4500,2600","size":"100,100"}
+“Hmm, I don’t think this is quite what I was looking for. I forgot you’re still a bit new.”
+
+[[My bad sorry|BruceContd3]]
+
+
+:: BruceBadContd2 {"position":"5200,4100","size":"100,100"}
+//It’s Bruce, and he looks surlier than ever. There’s something especially purposeful about him this time. He’s walks in like a man on a mission and seems more alert than ever.//
+
+"Hello. I need to talk to you, librarian."
+
+[[Of course. What brings you here today?]]
+
+[[Ooh, you look serious. Back on the case, detective?]]
+
+
+:: BruceCliches {"position":"5700,3100","size":"100,100"}
+"You really do watch too many cop movies, or read to many books more likely."
+
+[[Comes with the occupation. What’s the real story then?]]
+
+[[No? Aww how boring. anyways what kind of book do you want?|BruceContd4]]
+
+
+:: BruceContd1 {"position":"2700,2300","size":"100,100"}
+“I’m trying to find information about a certain style of painting. The one that’s sort of real but doesn’t quite look realistic.”
+
+“Well I’m afraid that doesn’t narrow it down to much, but here’s one I’d recommend”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Abstract Art|BruceEnct2]]
+
+[[Recommend Fauvism|BruceEnct2]]
+
+[[Recommend Photorealism|BruceEnct3]]
+
+(set: $collectedBooks to it + (a:'Abstract Art'))
+(set: $collectedBooks to it + (a:'Fauvism'))
+(set: $collectedBooks to it + (a:'Photorealism'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: BruceContd10 {"position":"7000,4000","size":"100,100"}
+“There’s one last thing. The other man you mentioned, Alastor, has been in contact with our person of interest. I don’t know much about him so I wanted to ask you. Are you suspicious of Alastor, and do you think he could be a criminal?”
+
+[[“Oh yeah that guy is for sure evil. 100% a bad guy.”|BruceFinish]]
+
+[[“Yes, maybe, but you know... It’s hard to just judge the entirety of a person like that.”|BruceContd11]]
+
+[[“No, I’m kind of dense and don’t reallythink about these things.”|BruceContd11]]
+
+
+:: BruceContd11 {"position":"7100,4200","size":"100,100"}
+“I see... Well I’ll ask you this then, did Alastor seem like a bad person?”
+
+[[“No, just someone caught in unfortunate circumstances.”|BruceFinish]]
+
+[[“To be honest, yes he probably is.”|BruceFinish]]
+
+
+:: BruceContd3 {"position":"4700,2400","size":"100,100"}
+“Goodbye. I’m sure I’ll see you again, eventually.”, he waves at you as he leaves the building.
+
+[[Continue|DarienEnct2]] 
+
+
+:: BruceContd4 {"position":"5900,3200","size":"100,100"}
+“I’m trying to become an expert on a specific style, so today I’m looking for-”
+
+//[[In your periphery, you notice something]]//
+
+
+:: BruceContd5 {"position":"5800,4000","size":"100,100"}
+“Maybe I am paranoid, but that “ghost” I bumped into the other day, well I looked into him. I got in touch with some old contacts, and if that was who I think it is, then he’s an art thief.”
+
+“This is where I first saw our person of interest. Perhaps he was casing this library. Is the art here valuable enough to steal?”
+
+(if: $bruceReconcile is true)[ [[“No, none of the art here is original, they’re all just reproductions.”|BruceContd6]]](else:)[ [[“I don’t really know to be honest, I just work here.”|BruceContd7]]]
+
+[[“Casing? Oh boy we’re using detective speak now.”]]
+
+
+:: BruceContd6 {"position":"6000,3800","size":"100,100"}
+“Hmm. Well in any case, my daughter will soon be attending an art exhibition with a myriad of very expensive pieces. I think that’ll be their primary target.”
+
+He continues “Do you see now why this is so serious? My daughter could be in danger.”
+
+[[Continue|BruceContd8]]
+
+(set: $bruceKnowsLocation to true)
+
+
+:: BruceContd7 {"position":"6000,4000","size":"100,100"}
+“I see, well I didn’t think the library would be a likely target in any case. Do you have any ideas on where they might be intending to strike?”
+
+(if: $knowAboutExhibition)[ [["Yes actually..."]]](else:)[
+//I wonder if I missed something earlier.//
+
+[[No, no idea really.]]]
+
+
+:: BruceContd8 {"position":"6400,4000","size":"100,100"}
+“Is there anything else? Particularly anything you might have noticed in relation to that shady character I mentioned?”
+
+“Well yes, actually. When he returned a book, I noticed that it had a note stuck inside. I couldn’t read the note, it was just gibberish, a string of numbers and letters. I think he was passing it off to Alastor, who also seemed a little shady.”
+
+[[Continue|BruceContd9]]
+
+
+
+
+:: BruceContd9 {"position":"6600,4000","size":"100,100"}
+“Wait so you’re saying you saw two shady characters passing a secret note? And you didn’t think to mention this earlier? Or try to decipher it? Or tell anyone?”
+
+“Well, yes, I suppose.”
+
+“...You know, there’s a reason some people aren’t detectives.”
+
+Holding his head he continues “Did you at least happen to copy down the note?”
+
+(if: $noteCopied is true)[ [[“Yeah, here you go.”]]]
+
+(if: $noteCopied is true)[ [[Yah I did, but I’m not going to give it to you now.]]]
+
+[[“Oh yeah, I thought about it, but then I forgot.”]]
+
+
+:: BruceEnct1 {"position":"2500,2300","size":"100,100"}
+//A man approaches you, dressed in a heavy overcoat. The deep lines on his grizzled face mark a stark contrast to his bright red hair. He looks tough and shrewd; his eyes seem to miss nothing. You wonder how he isn’t sweating in such an unnecessarily heavy coat.
+//
+“Hello, I’m Bruce. Bruce Clarke. I’m here to find a book about art. I see your name tag’s brand new, have you been on the job long?”
+
+[[“Nice to meet you Bruce, it just so happens we’ve got a few books here about art. I’ve only been head librarian for a little while, but I can probably help. What are you looking for specifically?”|BruceContd1]]
+
+[[“I might be new, but trust me I know what I’m doing. You want a book about art, I’ll get you a book about art. What kind of art?”|BruceContd1]]
+
+
+:: BruceEnct2 {"position":"2900,2200","size":"100,100"}
+“Hmm, this might be what I’m looking for. You seem quite well versed in art despite being new here, are you an artist yourself?”
+
+[[“Not quite, Mr. Detective. I’m just a fan of art, and I might’ve been here longer than you’d think.”|BruceEnct4]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+
+:: BruceEnct3 {"position":"2900,2400","size":"100,100"}
+“This is clearly not what I was looking for, I guess you are pretty new.”
+
+[[“Well spotted, Mr. Detective, I am in fact new, as I said earlier. I guess it’s been a bit of a long day.”|BruceEnct4]]
+
+
+:: BruceEnct4 {"position":"3100,2300","size":"100,100"}
+“Wait detective? You knew?”
+
+[[“Ahah I knew it! You are a detective. The overcoat and brooding manner gave it away.”|BruceEnct5]]
+
+[[“Wait, you’re a detective? That’s so cool. Are you on the case?”|BruceEnct5]]
+
+
+:: BruceEnct5 {"position":"3300,2300","size":"100,100"}
+“You must read too many crime novels. But I was a private investigator, not a detective, and I’m retired now anyways. Goodbye.” 
+
+And with that, he walks out and so your second day of work comes to an end. 
+
+[[End Day 2|Day 3]]
+
+
+:: BruceEnct6 {"position":"5300,3200","size":"100,100"}
+//You look up to see another familiar figure approaching. It’s Bruce, complete with his hard boiled overcoat and bright red hair. He looks a bit less intimidating this time.//
+
+“Hello.”
+
+[[“Hello again Mr. Detective, what can I do for you today?”]]
+
+[["Hello"]]
+
+
+:: BruceEnct7 {"position":"5000,4000","size":"100,100"}
+//As you smile and wave goodbye to Florian, you spy another figure walking towards you, immediately recognizable from his red hair and unnecessarily thick coat.//
+
+(if: $bruceKnowsImpressionism is true)[[[ Continue|BruceGoodContd2]]](else:)[ [[Continue|BruceBadContd2]]]
+
+
+:: BruceFinish {"position":"7300,4000","size":"100,100"}
+“Thank you. You’ve been most helpful. I’ll be seeing you.”
+
+[[“Goodbye.”]]
+
+
+:: BruceGood2 {"position":"4500,2400","size":"100,100"}
+“Yes, that’s the one, thanks a whole bunch that’s perfect. This’ll be perfect, I owe you one.”
+
+[[That's alright, it's my job|BruceContd3]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+(set: $bruceKnowsImpressionism to true)
+
+
+:: BruceGoodContd2 {"position":"5200,3900","size":"100,100"}
+//It’s Bruce, and you can tell from his expression that he’s happier than usual, he’s lost some of his permanent scowl. But not all of it, and today he’s moving like a man on a mission.//
+
+"Hello. I need to talk to you, librarian."
+
+[[Of course. What brings you here today?]]
+
+[[Ooh, you look serious. Back on the case, detective?]]
+
+
+:: BruceGotItRight {"position":"6300,3100","size":"100,100"}
+//As you watch the two argue, you wish you could jump in and shout out the answer Impressionism, Impressionism, she does Impressionism painting! Surely after that last book you gave him...//
+
+“You’re an Impressionist painter. In your art, you try to catch the whole world in a moment.”
+
+“That’s... right. And that’s a very succinct definition too, I wouldn’t have expected you to know. I guess you really did care.”
+
+“Of course I do.”
+
+//You let them have their moment, and then after a certain amount of time, you feel obliged to say something. The library is closing soon, after all.//
+
+[[“Well I’m glad to see you two getting on, I guess the power of art really can be transformative.”]]
+
+[[“So, uh, do you guys want a book?”]]
+
+(set: $bruceReconcile to true)
+
+
+:: BruceGotItWrong {"position":"6300,3400","size":"100,100"}
+//As you watch the two argue, you wish you could jump in and shout out the answer Impressionism, Impressionism, she does Impressionism painting! If only you’d given him that book last time...//
+
+“It’s Expressionism. That’s what you do, right, paint to show the world through feelings?”
+
+“That’s... Entirely wrong. I can’t believe I expected otherwise.”
+
+//You cringe a little, internally. If only you’d given him the other book last time.//
+
+“Well, it’s close right?”
+
+Not even a little, I do Impressionism, which is almost the opposite. Ugh, I’m leaving.
+
+“Wait... Ah blast.”
+
+Bruce looks back at you. 
+
+“Hmph, I can tell just by looking that you’re feeling quite guilty right now. Don’t be, this is my fault not yours. I need to go now. Goodbye.”
+
+[[“Sorry about that.”]]
+
+[[“Goodbye.”|Day 5 end]]
+
+
+:: Comes with the occupation. What’s the real story then? {"position":"5700,3300","size":"100,100"}
+"Nothing so exciting. I just wasn’t spending enough time with my family. I get really consumed by my work you know, and I lose sight what’s really important. I should have gone home early more often, spent more time with my daughter."
+
+Ah your daughter, that’s why you were trying to learn more about art right? 
+
+[[What kind of book are you looking for today?|BruceContd4]]
+
+
+:: Conclusion 1 {"position":"600,4900","size":"100,100"}
+''Breaking News:'' It appears there was an attempted theft at a recent art exhibition, closed to the public. Hundreds of priceless pieces of art were on display, each with valuations of millions of dollars or more. However, a retired private investigator, Bruce, happened to be on the scene alongside his daughter, an artist who was invited. 
+
+Details are scant but one suspect has been apprehended, and identified as a career art thief, “Joe M.” A second suspect was caught on camera entering in a large and unfashionable trench coat, but departed the scene prior to the attempted robbery and is believed to be responsible for an anonymous tip-off call to the authorities, immediately prior to the attempted theft.
+
+Authorities have also found incendiary devices scattered around the premises, which they believe were intended to cover the theives’ escape by burning the remaining artwork. However, none of the incendiary devices were actually triggered.
+
+[[End Game]]
+
+
+:: Conclusion 2 {"position":"600,5100","size":"100,100"}
+''Breaking News: ''There has been an art theft at a recent art exhibition, closed to the public. Hundreds of priceless pieces of art were on display, each with valuations of millions of dollars or more. Over a dozen pieces are now missing, though authorities have yet to confirm the exact pieces.
+
+Details are scant but authorities believe that the criminal responsible was a career art thief, “Joe M.” A second suspect was seen entering in a large and unfashionable trench coat, but departed the scene prior to the robbery. Authorities received a tip off about the robbery shortly before it occurred, believed to be from the second suspect, however they were unable to arrive in time.
+
+Authorities have also found incendiary devices scattered around the premises, which they believe were intended to cover the theives’ escape by burning the remaining artwork. However, none of the incendiary devices were actually triggered during the robbery.
+
+[[End Game]]
+
+
+:: Conclusion 3 {"position":"600,5300","size":"100,100"}
+''Breaking News: ''There has been an art theft at a recent art exhibition, closed to the public. Hundreds of priceless pieces of art were on display, each with valuations of millions of dollars or more. Dozens of pieces are believed to have been stolen, or were burned beyond recognition in the aftermath of the crime.
+
+Details are scant but authorities believe that the criminal responsible was a career art thief, one “Joe M.” A second suspect was seen entering in a large and unfashionable trench coat, but has yet to be identified. Both suspects are still at large.
+
+The theft also resulted in a fire; authorities believe that the thieves used incendiary devices to mask their escape, and hide which art pieces were stolen by burning countless others. Luckily, one former private investigator “Bruce” happened to be on the scene with alongside his daughter, and invited artist. He was able to act quickly and lead an evacuation, ensuring that nobody was hurt in the aftermath.
+
+[[End Game]]
+
+
+:: Conclusion 4 {"position":"600,5500","size":"100,100"}
+''Breaking News: ''There has been an art theft at a recent art exhibition, closed to the public. Hundreds of priceless pieces of art were on display, each with valuations of millions of dollars or more. Almost every piece at the exhibition is believed to have been stolen or burned beyond recognition in the aftermath of the crime.
+
+Details are scant but authorities believe that the criminal responsible was a career art thief, one “Joe M.” A second suspect was seen entering in a large and unfashionable trench coat, but has yet to be identified. Both suspects are still at large.
+
+The theft also resulted in a fire; authorities believe that the thieves used incendiary devices to mask their escape, by burning whatever artwork they couldn’t carry. This resulted in light burns, but no serious injuries. Authorities were caught unaware by this theft, and have stated that it was truly a worst case scenario and the worst possible outcome for everyone involved.
+
+[[End Game]]
+
+
+:: Constructivism [menu] {"position":"500,2800","size":"100,100"}
+''Constructivism''
+
+Constructivism was an artistic and architectural philosophy that originated in Russia beginning in 1913 by Vladimir Tatlin and Alexander Rodchenko. Rooted in the idea that art should directly reflect the modern industrial world, the movement sought to abstain from traditional artistic concerns and instead focus on the construction of the artwork.
+
+Constructivists believed that art should serve a social purpose and play a role in shaping a society's environment. In this vein, many Constructivists worked in a range of media and regarded themselves as engineers or technicians, rather than artists. This concept translated into an emphasis on materials and techniques used in construction, such as steel, glass, and plastics, as well as the application of technological processes.
+
+Constructivism was very influential in architecture, graphic design, industrial design, theater, film, dance, fashion, and to some extent, music. Its tenets influenced many modernist designers and architects and played a significant role in the development of the Bauhaus and the De Stijl movements. One of the most famous examples of Constructivist architecture is the design for the never-built headquarters of the Comintern in St. Petersburg by Ivan Leonidov.
+
+The movement began to decline in the 1920s when the Soviet government shifted its preference towards Socialist Realism. Nonetheless, its ideas have had a long-lasting impact on the development of abstract art and functional design.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Continue {"position":"300,5200","size":"100,100"}
+As you preapre to start your new day your attention is caught by your phone's insistent buzzing
+
+(if: $alastorFavour > 2 and $bruceBoth is true)[ [[Check phone|Conclusion 1]]](else-if: $alastorFavour > 2 and $bruceBoth is false)[ [[Check phone|Conclusion 2]]](else-if: $bruceBoth is true)[ [[Check phone|Conclusion 3]]](else:)[ [[Check phone|Conclusion 4]]]
+
+
+:: Copy note down? [menu] {"position":"6700,2000","size":"100,100"}
+//You copied down the note//
+
+(link-goto: "Return", $lastPassage)
+
+[[Artistic Symbolism]] 
+
+(set: $noteCopied to true)
+
+
+
+:: CoraBadEnct2 {"position":"2700,3300","size":"100,100"}
+//You look up again to see the familiar face of Cora walking towards you, once again in a suit, looking as if she’d just come from the office. She looks as stern and hawkish as ever, if anything today she seems even more stressed than before. It looks like a good book didn’t immediately solve all her problems in life.//
+
+“Hello, I’m looking for another book. The last one wasn’t quite to my liking, but I thought I’d try again.”
+
+[[“Of course, always happy to help. What brings you in today?”]]
+
+[[“What kind of visual style are you looking for?”]]
+
+
+:: CoraBadEnct3 {"position":"3100,3300","size":"100,100"}
+“Well it’s been going. We’ve got a new young man on the team. He seems bright but hasn’t contributed much. I wish he’d share more of his ideas, even the “bad” ones but I suppose he might be afraid of being judged poorly.”
+
+
+//Hmm, I wonder who that new team member could be//
+
+[[“Well, best of luck for your project. What type of book are you looking for today?”|“What kind of visual style are you looking for?”]]
+
+(set: $coraAdvice to true)
+
+
+
+:: CoraBadEnct4 {"position":"500,4300","size":"100,100"}
+//Out of the corner of your eye, you see a woman striding purposefully towards you. It’s Cora, in her trademark suit. She looks stressed, as she always seems to be.//
+
+“Hello, I’ve come to return this book and perhaps get another. Although perhaps not, I do need to get back to work rather soon.”
+
+(if: $coraLessStressed > 0)[ [[“You seem rather busy, lots of work to do?”|CoraGoodEnct5]]] (else:) [ [[“You seem rather busy, lots of work to do?”|CoraBadEnct5]]]
+
+[[Of course, is there a book you’re after today?|CoraGiveRec1]]
+
+
+:: CoraBadEnct5 {"position":"700,4300","size":"100,100"}
+“Oh you know, the work never ends. I love the job but, well, It’s a lot sometimes, especially this project.”
+
+[[“Hmm, well I wish you the best with your project. Is there a book you’re looking for?”|CoraGiveRec1]] 
+
+
+:: CoraBadEnct6 {"position":"1900,4200","size":"100,100"}
+“He’s, well, he’s trying his best, I’m sure. I think he just might not be a good fit for the team, if this project is anything to go by.”
+
+[[“Really, how so?”|CoraContd5]]
+
+[[“Do you think you might be being a little harsh on him?”|CoraContd5]]
+
+
+:: CoraBadRec2 {"position":"3500,3300","size":"100,100"}
+“Ah, this isn’t exactly what I was looking for, I don’t think this would translate so well into a game’s art style. But I’ll give it a look anyways. Thank you.”
+
+[[“You’re welcome. Goodbye.”]]
+
+
+:: CoraBrutalism {"position":"900,4300","size":"100,100"}
+“That’s not a biography, but thanks anyways.”
+
+[[Continue|EnterDarien]]
+
+
+:: CoraContd1 {"position":"1800,2300","size":"100,100"}
+“Hmm, I suppose I’m looking for something to help rekindle that creative spirit. I used to be quite the creative myself, not in visual arts mind you, but ever since adding “director” to my job title I’ve lost some of that. I’d like to read about an art style that’s expressive and passionate and interesting, and as far as possible from modern or corporate.”
+
+“Well lets see, I think I might have just the thing.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Romanticism]]
+
+[[Recommend Surrealism]]
+
+[[Recommend Modernism]]
+
+(set: $collectedBooks to it + (a:'Romanticism'))
+(set: $collectedBooks to it + (a:'Surreal Surrealism'))
+(set: $collectedBooks to it + (a:'Modernism'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: CoraContd2 {"position":"2200,2100","size":"100,100"}
+//You notice she really does seem less stressed. She’s brightened up considerably, and she seems so much more pleasant to be around now.//
+
+“No problem at all, just doing my job after all.”
+
+“Well I need to go now. I’ll be seeing you.” 
+
+[[Continue|BruceEnct1]]
+
+
+:: CoraContd3 {"position":"2200,2300","size":"100,100"}
+You aren’t bothered by her words, but she does seem quite stressed. Hopefully a good read helps her relax.
+
+“No worries, I hope you enjoy the book.”
+
+“Well I need to go now. I’ll be seeing you.” 
+
+[[Continue|BruceEnct1]]
+
+
+:: CoraContd4 {"position":"2200,2500","size":"100,100"}
+She does seem extremely stressed, which hasn’t exactly been alleviated by this interaction
+
+“It’s quite alright, and sorry, I hope you can find the book you’re looking for.”
+
+“Well I need to go now. I’ll be seeing you.”
+
+[[Continue|BruceEnct1]]
+
+
+:: CoraContd5 {"position":"2100,4200","size":"100,100"}
+“Well it’s just that he... Well I shouldn’t really be talking about this outside of work it’s quite unprofessional.”
+
+[[Continue|CoraContd6]]
+
+
+:: CoraContd6 {"position":"2300,4200","size":"100,100"}
+“Speaking of which, I need to be getting back myself. Goodbye.”
+
+[["Goodbye"|AlastorEnct4]]
+
+
+:: CoraDali {"position":"900,4100","size":"100,100"}
+“Dali? Well, he’s certainly an accomplished artist, and I suppose you could argue for his inventiveness. Perhaps I’ll find what I’m looking for in here, thank you.”
+
+[[Continue|EnterDarien]]
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+:: CoraDavinci {"position":"900,3900","size":"100,100"}
+“Da Vinci? of course why didn’t I think of that. He’s really the ideal Renaissance man, wouldn’t you say? Thanks for the recommendation.”
+
+[[Continue|EnterDarien]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+
+:: CoraEnct1 {"position":"1600,2300","size":"100,100"}
+//Your next visitor is a middle aged woman with a stern face and an impeccable suit. As she approaches, you can’t help but feel that she’d look more at home in a corporate boardroom. You also can’t shake the inexplicable feeling that you’re in trouble for something.//
+
+“Hello, I’m Cora, pleasure to make your acquaintance. I was hoping you could help me find an art book. I suppose that’s rather obvious and not very specific, I’ve rather a lot on my mind at the moment.”
+
+[[”Of course, happy to help. We’ve got quite the range of art books, what motivated you to come in?”|CoraContd1]]
+
+[[”Obvious? Well who knows, you could be here for uh... some other reason I suppose. What made you want to read about art?”|CoraContd1]]
+
+
+:: CoraGiveRec1 {"position":"700,3900","size":"100,100"}
+“Yes, today I’m looking for a biography. Preferrably about an artist who was also a visionary or scientist outside of the art world, someone with the spirit of invention within them.”
+
+“Oh, I think I’ve got just the one.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Da Vinci Bio|CoraDavinci]]
+
+[[Recommend Salvador Dali Bio|CoraDali]]
+
+[[Recommend Brutalism|CoraBrutalism]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: CoraGoodEnct2 {"position":"2700,3100","size":"100,100"}
+//You look up again to see the familiar face of Cora walking towards you, once again in a suit, looking as if she’d just come from the office. Today you notice that she looks to be in a far better mood than last time. Rather than stern and businesslike, her expression is softer and warmer. //
+
+//It was probably the book you recommended her, surely you can take full credit for her uplifted mood.//
+
+“Hello again, I’d forgotten how nice this library looked. I really enjoyed your last recommendation, I was hoping you could give me another one.”
+
+[[“Of course, always happy to help. What brings you in today?”]]
+
+[[“What kind of visual style are you looking for?”]]
+
+
+:: CoraGoodEnct3 {"position":"3100,3100","size":"100,100"}
+“Well it’s been going. We’ve recently introduced a young man to the team as a new member. He’s a hard worker for sure, but his contributions are a bit like his clothes, always so formal but no personality. I wish he’d share more of his ideas, even if he doesn’t think they’re good. It’s probably my own fault for being to harsh on him in the past.
+
+//Hmm, I wonder who that new team member could be//
+
+[[“Well, best of luck for your project. What type of book are you looking for today?”|“What kind of visual style are you looking for?”]]
+
+(set: $coraAdvice to true)
+
+
+
+:: CoraGoodEnct4 {"position":"500,4100","size":"100,100"}
+//Out of the corner of your eye, you see a woman striding purposefully towards you. It’s Cora, in her trademark suit. She seems to be in a pretty good mood today, though. //
+
+“Hello, I’ve come to return a book. I also wanted to thank you for your recommendations, they’ve been invaluable.”
+
+(if: $coraLessStressed > 0)[ [[“Well thank you. Have your game visuals been going well?”|CoraGoodEnct5]]] (else:) [ [["Well thank you. Have your game visuals been going"|CoraBadEnct5]]]
+
+[[“That’s good to hear, are you here for another one?”|CoraGiveRec1]]
+
+
+:: CoraGoodEnct5 {"position":"700,4100","size":"100,100"}
+“Oh you know, the work never ends. This project has been going pretty well though, loosening up on the team has really worked to all of our benefits.”
+
+[[“Hmm, well I wish you the best with your project. Is there a book you’re looking for?”|CoraGiveRec1]] 
+
+
+:: CoraGoodEnct6 {"position":"1900,4000","size":"100,100"}
+“Oh he’s been perfect. I had my doubts at first, but when I gave him a little more breathing room, he really started coming into his own.”
+
+(if: $darienHeardAdvice is true)[ [[Continue|CoraGoodEnct7]]] (else:) [ [[Continue|CoraGoodEnct8]]]
+
+
+:: CoraGoodEnct7 {"position":"2100,3800","size":"100,100"}
+“But you already knew that didn’t you. I expect he’s been coming a while, and you passed along my musings the other day as advice, didn’t you?”
+
+[[“Maybe so. I’m just doing my job, you know, answering questions and giving out recommendations, you know?”]]
+
+[[“I’ve got no idea what you mean. Probably. I wouldn’t want to interfere with anything, I’m just here to help out visitors.”]]
+
+
+:: CoraGoodEnct8 {"position":"2100,4000","size":"100,100"}
+“But I suspect you already knew that. I suspect he’s been coming here a while, so I’m sure I have your recommendations to thank for some of his ideas.”
+
+[[“Maybe so. I’m just doing my job, you know, answering questions and giving out recommendations, you know?”]]
+
+[[“I’ve got no idea what you mean. Probably. I wouldn’t want to interfere with anything, I’m just here to help out visitors.”]]
+
+
+:: CoraGoodRec2 {"position":"3500,3100","size":"100,100"}
+“Ah yes, that’s perfect. I’m sure this will serve as excellent inspiration for our game. I have a feeling it will suit the young man who’s recently joined our team as well. Thank you.”
+
+[[“You’re welcome. Goodbye.”]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+(set: $coraLessStress to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $coraLessStress to it - 2)]
+
+
+:: Cubism and its many facets [menu] {"position":"5900,800","size":"100,100"}
+Cubism is an early-20th-century avant-garde art movement that revolutionized European painting and sculpture, and inspired related artistic movements in music, literature, and architecture. In Cubist works of art, the subjects are analysed, broken up, and reassembled in an abstract form—instead of depicting objects from a single perspective, the artist depicts the subject from multiple perspectives to represent the subject in a greater context. Cubism has been considered the most influential art movement of the 20th century. The term cubism is broadly associated with a variety of artworks produced in Paris (Montmartre and Montparnasse) or near Paris (Puteaux) during the 1910s and throughout the 1920s.
+
+Source: Wikipedia
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Da Vinci Bio [menu] {"position":"3600,800","size":"100,100"}
+''Da Vinci Bio:''
+
+Leonardo di ser Piero da Vinci (15 April 1452 – 2 May 1519) was an Italian polymath of the High Renaissance who was active as a painter, draughtsman, engineer, scientist, theorist, sculptor, and architect. While his fame initially rested on his achievements as a painter, he also became known for his notebooks, in which he made drawings and notes on a variety of subjects, including anatomy, astronomy, botany, cartography, painting, and paleontology.
+
+Personal Note: Revered for his technological ingenuity, he conceptualized flying machines, a type of armored fighting vehicle, concentrated solar power, a ratio machine that could be used in an adding machine, and the double hull. He made substantial discoveries in anatomy, civil engineering, hydrodynamics, geology, optics, and tribology, but he did not publish his findings and they had little to no direct influence on subsequent science.
+
+Work: Leonardo is identified as one of the greatest painters in the history of art and is often credited as the founder of the High Renaissance. His magnum opus, the Mona Lisa, is his best known work and often regarded as the world's most famous painting. The Last Supper is the most reproduced religious painting of all time and his Vitruvian Man drawing is also regarded as a cultural icon.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Daily Note 1 [menu] {"position":"300,500","size":"100,100"}
+''Daily Notes 1''
+Welcome to the art library, a place dedicated to knowledge about art. You’ve recently been promoted to the prestigious position of Head (and, admittedly only) Librarian! 
+
+Your job here is to talk to visitors and recommend books to people based on their interests. Your decisions will have consequences. Good luck!
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Daily Note 2 [menu] {"position":"500,500","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_1df9fe68e36e4867a45a72ac08731077~mv2.png/v1/fill/w_801,h_455,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/day%202.png">
+
+<br>
+''Daily Notes 2:''
+Another day at the Library. The novelty of being surrounded by so many fascinating books and pieces of artwork still hasn’t worn off, what a dream job! If only it paid a little more...
+
+''Florian'' has a solid direction and has made progress on his final university project
+
+''Darien''  appreciated the recommendation, and had to hurry back to work with the book
+
+''Alastor'' seems a bit disdainful of art in general, but perhaps there’s more going on
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Daily Note 3 [menu] {"position":"700,500","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+The days are just flying by now, and you wonder what’s become of all the people you’ve met. Maybe today you’ll get some return visitors.
+
+''Alastor'' seems a bit disdainful of art in general, but perhaps there’s more going on
+
+''Bruce'' was trying to “privately investigate” some specific art style
+
+''Cora''  was trying to de-stress, and reconnect with her creative side
+
+''Darien''  appreciated the book, and had to hurry back to work with it
+
+(if: $evelynInspired is true)[ ''Evelyn'' got some new inspiration for her artwork (and mentioned something about an art showcase coming up, if red path earlier)
+]
+
+''Florian'' has a direction and has made progress on his final uni project
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Daily Note 4 [menu] {"position":"900,500","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+Man this job seems to be going well, you’re almost fully settled into you’re role. At this point you’re an expert Librarian, probably.
+
+''Alastor'' seems a bit disdainful of art in general, but seems to be a little more interested in exploring the meaning of it.
+
+''Bruce'' was searching for the specific art style that his daughter was interested in.
+
+''Cora''  was trying to de-stress, and reconnect with her creative side
+
+''Darien'' seems to be getting settled into his workplace, and appreciated the recommendation
+
+(if: $evelynInspired is true)[ ''Evelyn'' got some new inspiration for her artwork (and mentioned something about an art showcase coming up, if red path earlier)
+]
+
+''Florian'' has a direction and has made progress on his final uni project
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Daily Note 5 [menu] {"position":"1100,500","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+//Another day, another slew of people needing book recommendations. Man it sure is a good thing nobody can figure out how the bookshelves are organized.//
+
+''Alastor'' seemed quite distracted the last time you saw him, possibly even conflicted.
+
+''Bruce'' was searching for the specific art style that his daughter was interested in.
+
+''Cora'' was looking for some new stylistic inspiration for a game she’s in charge of visuals for. She also mentioned a new hire.
+
+''Darien'' Seems to be getting settled into his new job, and appreciated the book recommendation.
+
+''Evelyn'' was looking into famous artists, in preparation of some event.
+
+''Florian'' now has all the details nailed down for his final uni project.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Daily Note 6 [menu] {"position":"1300,500","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+Things are really moving along now. You’ve found yourself quite well settled into the role of Librarian. You wonder who’ll be along today. 
+
+''Alastor'' seemed quite distracted the last time you saw him, possibly even conflicted.
+
+''Bruce'' ran into Evelyn, his daughter, and they argued a little bit and talked about her art.
+
+''Cora'' was looking for some new stylistic inspiration for a game she’s in charge of visuals for. She also mentioned a new hire.
+
+''Darien'' has been assigned to a new project at work.
+
+''Florian'' now has all the details nailed down for his final uni project.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Daily Note 7 [menu] {"position":"1500,500","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+Wow, seems like ages since you’ve first started. You think back proudly at your long list of recommendations, even the bad ones. ;)
+
+There’s no reason to think that tomorrow won’t be precisely the same as today, but you can’t shake the feeling that today is your final day as librarian.
+
+''Alastor'' was extremely conflicted, and is likely off doing something nefarious.
+
+''Bruce'' ran into Evelyn, and they argued a little bit and talked about her art.
+
+''Cora''  bumped into Darien, and it turns out they’re co-workers
+
+''Florian'' now has everything he needs for his final uni project.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Daily Notes [menu] {"position":"800,900","size":"100,100"}
+(css: "font-size: 1.7vh;line-height:50px")[
+(if: $days contains 'day1')[ [[Daily Note 1]]]
+(if: $days contains 'day2')[ [[Daily Note 2]]]
+(if: $days contains 'day3')[ [[Daily Note 3]]]
+(if: $days contains 'day4')[ [[Daily Note 4]]]
+(if: $days contains 'day5')[ [[Daily Note 5]]]
+(if: $days contains 'day6')[ [[Daily Note 6]]]
+(if: $days contains 'day7')[ [[Daily Note 7]]]
+]
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Dali rec 1 {"position":"2450,1050","size":"100,100"}
+"Ahh, yes! I believe that was his name. Thank you very much" And with that he shakes your hand and steps out of the library
+
+[[Continue|rando1end]]
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+
+:: Darien Mistake {"position":"4600,1400","size":"100,100"}
+"Biographies? Oh sorry I should have clarified, I’d like to read about art styles. Da Vinci’s life was truly incredible though, I’m not really too familiar with his art beyond a surface level, I’m actually new to art in general. At the moment I’m looking for a style that evokes feelings of realistic optimism and human progress, but nothing too modern."
+
+"Hmm, alright how about one of these then. I recommend this one."
+
+[[Check Library|Library Collection]]
+
+[[On Renaissance art|On Renaissance art rec]]
+
+[[On Industrial Revolution art|On Industrial Revolution art rec]]
+
+[[On photography as art form|On photography as art form rec]]
+
+(set: $collectedBooks to it + (a:'On Renaissance art'))
+(set: $collectedBooks to it + (a:'On Industrial Revolution art'))
+(set: $collectedBooks to it + (a:'On photography as art form'))
+
+
+:: DarienBadEnct {"position":"5100,2500","size":"100,100"}
+//Today Darien seems even more stressed than last time. He seems to be in low spirits, and he has slight bags under his eyes.//
+
+“Hello. I need to get another book.”
+
+[[Hello Darien, how are you doing today?|DarienBadEnct2]]
+
+
+:: DarienBadEnct1 {"position":"4200,3300","size":"100,100"}
+//Ah, nothing like the smell of fresh books in the morning. Not that they smell any different than any other time, or that they’re particularly fresh. Regardless, you start the day with boundless optimism, as you see a young man approaching.
+
+Your first visitor of the day is Darien, back again, and looking more stressed than ever. His collared shirt looks a bit crumpled and he seems a bit tired.//
+
+[[“Hello again Darien, you look a little tired, late night? How are you today?”]]
+
+
+:: DarienBadEnct2 {"position":"5300,2500","size":"100,100"}
+“Not well, to be honest. Lately the new job’s been such a drag, my manager has been in an especially sour mood. I know she’s stressed about this big project that we’re also all stressed about, and all the stress combines together and we’re all just stressed. Anyways I need to get back to the office so I’ll make it quick. I’m looking for a biography about a Renaissance artist, not Da Vinci though.”
+
+“Alright, I’ve got just the thing.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Michelangelo Bio|DarienMichael]]
+
+[[Recommend Van Gogh Bio|DarienNotMichael]]
+
+[[Recommend Picasso Bio|DarienNotMichael]]
+
+(set: $collectedBooks to it + (a:'Michelangelo Bio'))
+(set: $collectedBooks to it + (a:'Van Gogh Bio'))
+(set: $collectedBooks to it + (a:'Picasso Bio'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+
+:: DarienBadRec {"position":"5000,3300","size":"100,100"}
+//He seems to be contemplating your intelligence, or perhaps lack thereof//
+
+“Aha that’s funny, thanks anyways.”
+
+[[“Goodbye”|BruceEnct6]]
+
+
+:: DarienEnct1 {"position":"4400,1300","size":"100,100"}
+//You are approached by another young man, though entirely opposite in appearance to the earlier one. Impeccably put together this one, with a slightly stressed air about him.//
+
+“Hello, I’m in a bit of a rush but can you help me find a book? I’m Darien, nice to meet you.
+
+[[No problem, what are you looking for exactly?]]
+
+'Sure, could one of these interest you?'
+
+[[Recommend Salvador Dali Bio|Darien Mistake]]
+
+[[Recommend Picasso Bio|Darien Mistake]]
+
+[[Recommend Da Vinci Bio|Darien Mistake]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+
+:: DarienEnct2 {"position":"4900,2400","size":"100,100"}
+//It’s getting to be around midday now, and you’re just starting to think about lunch when you see another familiar face. This time it’s Darien, in a collared shirt as usual.
+//
+
+(if: $coraLessStressed > 0)[ [[Greet him|DarienGoodEnct]]] (else:) [ [[Greet Him|DarienBadEnct]]]
+
+
+:: DarienGoodEnct {"position":"5100,2300","size":"100,100"}
+//You notice that today he seems a lot more carefree than last time you saw him, rather than slightly stressed  he seems to be in good spirits//
+
+“”Hello again, I’m back for another book.”
+
+[[Hello Darien, how are you doing today?|DarienGoodEnct2]]
+
+
+:: DarienGoodEnct1 {"position":"4200,3100","size":"100,100"}
+//Ah, nothing like the smell of fresh books in the morning. Not that they smell any different than any other time, or that they’re particularly fresh. Regardless, you start the day with boundless optimism, as you see a young man approaching
+
+Your first visitor of the day is Darien, back again, and this time he looks to be in a fine mood. His shirt looks freshly ironed and he’s wearing a broad grin.//
+
+[[“Hello again Darien, you look to be in a good mood. How are you today?”]]
+
+
+:: DarienGoodEnct2 {"position":"5300,2300","size":"100,100"}
+“Really well actually, thanks! I’ve really been enjoying the new job, my manager’s been in a much better mood and it’s quite contagious. It really makes all the difference, you know? Anyways, I’m back on my lunch break again so I’ll try to be quick, not that I’ll get in trouble. I’m looking for a biography about a famous Renaissance artist. Not Da Vinci, but someone else who was highly influential.”
+
+“Alright, I’ve got just the thing.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Michelangelo Bio|DarienMichael]]
+
+[[Recommend Van Gogh Bio|DarienNotMichael]]
+
+[[Recommend Picasso Bio|DarienNotMichael]]
+
+(set: $collectedBooks to it + (a:'Michelangelo Bio'))
+(set: $collectedBooks to it + (a:'Van Gogh Bio'))
+(set: $collectedBooks to it + (a:'Picasso Bio'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+
+:: DarienGoodRec {"position":"5000,3100","size":"100,100"}
+“Thanks a ton, see you next time.”
+
+[[“Lucky you we had two in stock. Goodbye”|BruceEnct6]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+
+:: DarienMichael {"position":"5500,2300","size":"100,100"}
+“Ooh Michelangelo, how could I forget. That’s great, thanks.”
+
+[[Continue|DarientContd2]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+
+:: DarienNotMichael {"position":"5500,2500","size":"100,100"}
+“Not exactly a Renaissance artist, but could be interesting, thanks anyways”
+
+[[Continue|DarientContd2]] 
+
+
+:: DarientContd1 {"position":"5100,1300","size":"100,100"}
+"Oh I’m actually on my lunch break and I’ve got to get back to work. The boss is pretty strict. See you"
+
+[[Continue|AlastorEnct1]]
+
+
+:: DarientContd2 {"position":"5700,2400","size":"100,100"}
+“Well I’ve got to head back now. I’ll see you next time.”
+
+(if: $coraLessStressed > 0)[ [[He seemed to be in quite a good mood, I’m glad everything’s going well for him. I wonder if I can take any credit for that.|AlastorEnct2]]] (else:) [ [[He seemed to be quite stressed, I hope he feels better. I wonder if it’s a result of anything I’ve done. Probably not.|AlastorEnct2]]]
+
+
+:: Day 2 Start {"position":"300,2300","size":"100,100"}
+//The library has barely opened and already your first visitor of the day has arrived. No more napping. You stifle a yawn, and lament the lack of nearby coffee shops as the woman approaches.
+//
+She walks over in no hurry, seeming familiar with much of the artwork adorning the walls, though her demeanor is rather reserved. Her bright red hair seems familiar, but you can’t quite remember from where.
+
+[[Continue|EvelynContd1]]
+
+
+:: Day 3 {"position":"3500,2300","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+The days are just flying by now, and you wonder what’s become of all the people you’ve met. Maybe today you’ll get some return visitors.
+
+''Alastor'' seems a bit disdainful of art in general, but perhaps there’s more going on
+
+''Bruce'' was trying to “privately investigate” some specific art style
+
+''Cora''  was trying to de-stress, and reconnect with her creative side
+
+''Darien''  appreciated the book, and had to hurry back to work with it
+
+(if: $evelynInspired is true)[ ''Evelyn'' got some new inspiration for her artwork (and mentioned something about an art showcase coming up, if red path earlier)
+]
+
+''Florian'' has a direction and has made progress on his final uni project
+
+[[Continue|Mysterious Rando]]
+
+(set: $days to it + (a:'day3'))
+
+
+:: Day 4 start {"position":"100,3200","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+Man this job seems to be going well, you’re almost fully settled into you’re role. At this point you’re an expert Librarian, probably.
+
+''Alastor'' seems a bit disdainful of art in general, but seems to be a little more interested in exploring the meaning of it.
+
+''Bruce'' was searching for the specific art style that his daughter was interested in.
+
+''Cora''  was trying to de-stress, and reconnect with her creative side
+
+''Darien'' seems to be getting settled into his workplace, and appreciated the recommendation
+
+(if: $evelynInspired is true)[ ''Evelyn'' got some new inspiration for her artwork (and mentioned something about an art showcase coming up, if red path earlier)
+]
+
+''Florian'' has a direction and has made progress on his final uni project
+
+[[Start your day|FlorianEnct3]]
+
+(set: $days to it + (a:'day4'))
+
+
+:: Day 5 end {"position":"6700,3200","size":"100,100"}
+//And with that rather suprising turn of events, the sun slowly starts to set and your day comes to an end//
+
+[[Continue|Day 6 Start]]
+
+
+:: Day 5 start {"position":"4000,3200","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+//Another day, another slew of people needing book recommendations. Man it sure is a good thing nobody can figure out how the bookshelves are organized.//
+
+''Alastor'' seemed quite distracted the last time you saw him, possibly even conflicted.
+
+''Bruce'' was searching for the specific art style that his daughter was interested in.
+
+''Cora'' was looking for some new stylistic inspiration for a game she’s in charge of visuals for. She also mentioned a new hire.
+
+''Darien'' Seems to be getting settled into his new job, and appreciated the book recommendation.
+
+''Evelyn'' was looking into famous artists, in preparation of some event.
+
+''Florian'' now has all the details nailed down for his final uni project.
+
+(if: $coraLessStressed > 0)[ [[Get the day started|DarienGoodEnct1]]] (else:) [ [[Get the day started|DarienBadEnct1]]]
+
+(set: $days to it + (a:'day5'))
+
+
+:: Day 6 Start {"position":"100,4200","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+Things are really moving along now. You’ve found yourself quite well settled into the role of Librarian. You wonder who’ll be along today. 
+
+''Alastor'' seemed quite distracted the last time you saw him, possibly even conflicted.
+
+''Bruce'' ran into Evelyn, his daughter, and they argued a little bit and talked about her art.
+
+''Cora'' was looking for some new stylistic inspiration for a game she’s in charge of visuals for. She also mentioned a new hire.
+
+''Darien'' has been assigned to a new project at work.
+
+''Florian'' now has all the details nailed down for his final uni project.
+
+[[Roll into the day]]
+
+(set: $days to it + (a:'day6'))
+
+
+:: Day 7 start {"position":"3900,4000","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_3eaf38321b754e1a9a9165e162bce752~mv2.png/v1/fill/w_485,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/day%203.png">
+
+<br>
+Wow, seems like ages since you’ve first started. You think back proudly at your long list of recommendations, even the bad ones. ;)
+
+There’s no reason to think that tomorrow won’t be precisely the same as today, but you can’t shake the feeling that today is your final day as librarian.
+
+''Alastor'' was extremely conflicted, and is likely off doing something nefarious.
+
+''Bruce'' ran into Evelyn, and they argued a little bit and talked about her art.
+
+''Cora''  bumped into Darien, and it turns out they’re co-workers
+
+''Florian'' now has everything he needs for his final uni project.
+
+[[Start Day 7]]
+
+(set: $days to it + (a:'day3'))
+
+
+:: Day1End {"position":"6125,1275","size":"100,100"}
+//And with that your first day of work as a librarian comes to and end. Good job!//
+
+[[Why thank you]]
+
+
+:: End Game {"position":"800,5200","size":"100,100"}
+//Thank you for playing. 
+
+This game was made as a part of Design223 by team 3Down. 
+
+- Skylir Chang 
+- Trevor Heinemann
+- Jedidiah Solomon 
+
+For all its ups and downs, this project was a great learning experience for all of us. 
+
+- Fin//
+
+
+:: EnterDarien {"position":"1100,4100","size":"100,100"}
+“Oh, hey Cora is that you?”
+
+//You both turn to see Darien, walking towards you with a surprised expression.//
+
+“Darien? What a surprise to see you here, are you on you lunch break as well?”
+
+“Yes, although I’ve only got a little longer, I should really hurry back.”
+
+//Darien looks slightly nervous, as if he hadn’t expected this.//
+
+[[“You two know each other?”]]
+
+[[“Hello Darien, can I offer you a book before you go back?”]]
+
+
+:: EvelynContd1 {"position":"500,2300","size":"100,100"}
+“Hello, sorry to bother you I’m Evelyn. I wanted to come in and do some research about art. Well inspiration really, I’m looking for books about impressionism.”
+
+[[“Hello, you’re Evelyn Clarke right, the impressionist painter? I’m a big fan of your work! It seems like you’re already something of an expert on impressionism, what sort of book are you looking for specifically?”]]
+
+[[Suddenly you do recognize her; Evelyn Clarke, an accomplished local artist. As an avid art fan yourself, you’ve seen some of her impressionist pieces.]]
+
+
+:: EvelynContd2 {"position":"900,2300","size":"100,100"}
+”Actually at the moment I’m trying to work through a bit of a creative block. I was hoping to find some new inspiration, still in the genre of Impressionism.”
+
+”Sure, I’d recommend giving this one a read.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Biography of Claude Monet]]
+
+[[Recommend Basics of Impressionism]]
+
+[[Recommend On Minimalism]]
+
+(set: $collectedBooks to it + (a:'Biography of Claude Monet'))
+(set: $collectedBooks to it + (a:'Basics of Impressionism'))
+(set: $collectedBooks to it + (a:'On Minimalism'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: EvelynContd3 {"position":"1300,2200","size":"100,100"}
+”Actually that reminds me, did you know there’s an exhibition coming up? It’ll be amazing, so many famous and historic pieces of art in one room. I think it might have a limited guest list for security reasons though. See you later.”
+
+And with that, Evelyn leaves the library
+
+[[Continue|CoraEnct1]]
+
+(set: $knowAboutExhibition to true)
+
+
+
+:: EvelynContd4 {"position":"1300,3200","size":"100,100"}
+“Thank you. Today I’m looking for another biography about a famous impressionist painter.”
+
+“Oh, no problem, I’ve got just the thing.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Pierre-Auguste Renoir Bio]]
+
+[[Recommend Rembrandt Bio]]
+
+[[Recommend Da Vinci Bio]]
+
+(set: $collectedBooks to it + (a:'Pierre-Auguste Renoir Bio'))
+(set: $collectedBooks to it + (a:'Rembrandt Bio'))
+(set: $collectedBooks to it + (a:'Da Vinci Bio'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: EvelynEnct2 {"position":"1100,3200","size":"100,100"}
+//You look out to see your next visitor approaching. It’s Evelyn again, immediately recognizable by her red hair. She looks a little more comfortable being here this time. Hopefully your last book recommendation encouraged her to get another//
+
+“Hello, I’m back again. I appreciated your recommendation last time, so if you don’t mind, do you think you could help me find another book?”
+
+[[“Of course, always happy to have such a distinguished artist in our midst. What are you looking for today?”|EvelynContd4]]
+
+[[“I’ll do my best, it is my job after all. What exactly are you looking for?”|EvelynContd4]]
+
+
+:: EvelynGoodbye {"position":"1800,3200","size":"100,100"}
+"Goodbye", she waves at you as she steps out of the library.
+
+[[Continue|AlastorEnct3]]
+
+
+:: Fauvism [menu] {"position":"2900,2000","size":"100,100"}
+Fauvism is the style of les Fauves (French for "the wild beasts"), a group of early 20th-century modern artists whose works emphasized painterly qualities and strong colour over the representational or realistic values retained by Impressionism. While Fauvism as a style began around 1904 and continued beyond 1910, the movement as such lasted only a few years, 1905–1908, and had three exhibitions. The leaders of the movement were André Derain, Maurice de Vlaminck, and Henri Matisse.
+
+Source: Wikipedia
+
+(link-goto: "Return", $lastPassage)
+
+
+:: FlorianBestRec {"position":"4500,3800","size":"100,100"}
+“It went amazing actually. It was really something special, all the tutors loved it, and I even impressed some really accomplished artists and people in industry. I couldn’t be happier! Thanks again for your book recommendations, they were really key!”
+
+“Hey that’s great to hear man, I’m really happy for you. And I couldn’t possibly take credit for any of your success, that was all you.”
+
+[[“While you’re here, can I also offer you a book, for old times sake maybe?”]]
+
+
+:: FlorianContd1 {"position":"3400,1275","size":"100,100"}
+"I’m doing research for a university project, my final project in fact, and I’m looking for inspiration. I’m into abstract art and I want to create an homage to an artist in their own style. Could you recommend me the biography of a good artist for that?"
+
+[[Check Library|Library Collection]]
+
+[[Recommend Salvador Dali]]
+
+[[Recommend Picasso]]
+
+[[Recommend Da Vinci]]
+
+(set: $collectedBooks to it + (a:'Salvador Dali Bio'))
+(set: $collectedBooks to it + (a:'Picasso Bio'))
+(set: $collectedBooks to it + (a:'Da Vinci Bio'))
+
+
+:: FlorianContd2 {"position":"900,3200","size":"100,100"}
+“Always glad to help.”
+
+“Till next time then.”
+
+[[Continue|EvelynEnct2]]
+
+
+:: FlorianEnct1 {"position":"2975,1250","size":"100,100"}
+//You notice a young man wandering over to your desk wearing slightly disheveled clothing and a slightly scattered smile.//
+
+“Hey, how’s it going? I’m looking for -ooh is that an original Escher over there? Nice! Anyways, I’m Florian, and I was hoping you could help me with a book recommendation. It’s for a uni project.
+
+"Just a reproduction, are you a big fan of M. C. Escher?" 
+
+[[Show Escher’s “Hand with reflecting Sphere”]]
+
+[[Sure, I’d be happy to help. It’s what I’m here for after all.]]
+
+[[Alright, let’s get this over with (Remembered)]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+(set: $libraryScore to $rando1Score)
+
+
+:: FlorianEnct3 {"position":"300,3200","size":"100,100"}
+//The morning is passing pleasantly when you notice a figure coming towards you. You can’t help but cheer up a little as you recognize the slightly distracted but infectious smile of Florian.//
+
+“Hey, what’s up? It’s me again, back for another book. I’ve changed my mind about my final uni project, I want to do it about a specific artist in a style other than their own. Last time I got a book about an artist, now I’m looking for one about a style.”
+
+[[“Ooh that sounds really cool, I’m sure your final project will go wonderfully! You’ll have to show me when you’re all done.”]]
+
+[[“Changing up your project? You might want to nail down the focus of it before it gets away from you.”]]
+
+
+:: FlorianGoodRec {"position":"4500,4000","size":"100,100"}
+“Pretty well I’d say, a bit of room for improvement, but that’s always the case for creatives, isn’t it. The tutors thought I had great potential, and that I might grown into quite the artist someday. Thanks for the book recommendations, they really ended up inspiring the best parts of the project.”
+
+“Hey that’s great to hear man, I’m really happy for you. And I couldn’t possibly take credit for any of your success, that was all you.”
+
+[[“While you’re here, can I also offer you a book, for old times sake maybe?”]]
+
+
+:: FlorianHint {"position":"3800,1175","size":"100,100"}
+"Oh and... not to be rude to anyone but part of the reason I wanted to know if the art here is originals is because I passed a... well shady charater on the way in. It’s probably just my imagination though. Goodbye."
+
+[[Continue|RedoFlorian]]
+
+
+:: FlorianNoRec {"position":"4500,4200","size":"100,100"}
+“Well, it wasn’t the best to be honest, I passed but didn’t really impress anyone. I think I got too distracted switching too much between ideas when I should have just picked one and stuck with it. It’s not your fault though, the book recommendations were good, and those were the ideas I ended up going with.”
+
+“Ah, I’m sorry to hear that.”
+
+[[“While you’re here, can I also offer you a book, for old times sake maybe?”]]
+
+
+:: Give Cora's advice {"position":"4600,2900","size":"100,100"}
+“Well it just so happened I was talking to some visitor in management the other day, and she had some advice. She wished people would be happier to share even their dumb ideas, without worrying too much about criticism. Maybe there’s something in that.”
+
+“That’s... Thanks actually, I’ll have to think about that.”
+
+[[“In the meantime, do you want a book?”]]
+
+(set: $darienHeardAdvice to true)
+
+
+:: Great! What do I do? {"position":"1650,1250","size":"100,100"}
+A library's role is to enrich the lives of it's visitors. Knowledge is power and art fills the soul. 
+
+So amidst your normal maintenance of the library's collection, your primary role as head librarian will be to ensure that you help out your visitors to the best of your visitors.
+
+Look! Here comes your first victi- visitor!
+
+[[Look at the visitor]]
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: Hand Darien a copy of the same book as Cora. {"position":"1700,4100","size":"100,100"}
+“I do need to get back now, goodbye librarian, and see you back at the office, Cora.”
+
+Darien leaves.
+
+(if: $coraLessStressed > 0)[ [[“He seems like a hard worker, I’ll bet he’s a great employee to have.”|CoraGoodEnct6]]] (else:) [ [[He seems like a hard worker, I’ll bet he’s a great employee to have."|CoraBadEnct6]]]
+
+
+:: Header [header] {"position":"800,1100","size":"100,100"}
+(css: "font-size: 1.5vh")[
+[[Library Collection]] | [[Daily Notes]] | [[Library Reputation]]]
+
+<br>
+
+
+:: I think so based on what I've just been told {"position":"2050,1250","size":"100,100"}
+"Ah, not quite the response I was expecting but okay" He responds rather confused. 
+
+"See, my wife recently got into all this art stuff, and as much as I'd love to be a part of the conversation when we talk about it, it's rather difficult when I find myself not having the slightest clue what she's talking about" 
+
+Turning back to you he mumbled, "So that brought me to what I thought was supposed to be a reputable art house. Recently she's been talking about this artist called Dall-E, or was it Dali? Either way, I was hoping you might be able to point me in the right direction to learn more about him."
+
+[[Continue|rando1choice]]
+
+
+
+:: In your periphery, you notice something {"position":"6100,3200","size":"100,100"}
+You notice another person with bright red hair approaching.
+
+“Dad?”
+
+“Evelyn? What are you doing here?”
+
+“Oh I don’t know, what’s an artist doing in a library of books about art? I thought you were supposed to be the big shot investigator. What are you doing here?”
+
+“Don’t take that tone with m- Look, I was trying to learn more about your art. I really do care, and I wanted to read about it.”
+
+“Oh yeah? what kind of painting do I do then?
+
+It’s called... Um, ah, it’s the one where it’s like...
+
+(if: $bruceKnowsImpressionism is true)[ [[Continue|BruceGotItRight]]](else:)[ [[Continue|BruceGotItWrong]]]
+
+
+:: I’m glad. {"position":"3500,3800","size":"100,100"}
+“I have just one last question for you, bookkeeper, and please answer honestly. Do you think that good people can be forced to do bad things? And do you believe robbery is less bad than hurting people?”
+
+[[“Yes. I think that sometimes good people are forced to do bad things, and that thievery is less evil than harming people. But I think that it’s a very slippery slope.”|AlastorLastAnswer]]
+
+[[“No, good people can’t be forced to do bad things. If they could, they wouldn’t be good people. And evil is evil. Lesser, greater, middling... makes no difference.”|AlastorLastAnswer]]
+
+
+:: Last Passage Tracking [header] {"position":"400,1100","size":"100,100"}
+(if: not ((passage:)'s tags contains "menu"))[(set: $lastPassage to (passage:)'s name)]
+
+
+:: Library Collection [menu] {"position":"600,900","size":"100,100"}
+(css: "font-size: 1.7vh;line-height:50px")[
+
+(if: $collectedBooks contains 'Salvador Dali Bio')[ [[Salvador Dali Bio]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Picasso Bio')[ [[Picasso Bio]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Da Vinci Bio')[ [[Da Vinci Bio]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'On Renaissance art')[ [[On Renaissance art]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'On Industrial Revolution art')[ [[On Industrial Revolution art]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'On photography as art form')[ [[On photography as art form]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'On Brutalism')[ [[On Brutalism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Surreal Surrealism')[ [[Surreal Surrealism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Cubism and its many facets')[ [[Cubism and its many facets]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Biography of Claude Monet')[ [[Biography of Claude Monet]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Basics of Impressionism')[ [[Basics of Impressionism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'On Minimalism')[ [[On Minimalism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Romanticism')[ [[Romanticism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Modernism')[ [[Modernism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Abstract Art')[ [[Abstract Art]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Fauvism')[ [[Fauvism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Photorealism')[ [[Photorealism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Michelangelo Bio')[ [[Michelangelo Bio]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Van Gogh Bio')[ [[Van Gogh Bio]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Artistic Symbolism')[ [[Artistic Symbolism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Pointilism')[ [[Pointilism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Constructivism')[ [[Constructivism]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Pierre-Auguste Renoir Bio')[ [[Pierre-Auguste Renoir Bio]]](else:)[This book hasn't been found yet]
+(if: $collectedBooks contains 'Rembrandt Bio')[ [[Rembrandt Bio]]](else:)[This book hasn't been found yet]
+]
+
+(link-goto: "Return", $lastPassage)
+(set: $tempLibraryScore to $libraryScore)
+
+
+
+:: Library Reputation [menu] {"position":"1000,900","size":"100,100"}
+(css: "font-size: 1.7vh;line-height:50px")[{
+(if: $potentialScore is 0)[ (set: $potentialScore to 1)]
+(set: $currentPercentage to ($libraryScore/$potentialScore))}
+(if: $currentPercentage > 0.7 and $libraryScore > 10)[Overall the library is thriving! Congragulations on helping it reach such vast renown](else-if: $currentPercentage > 0.7)[Overall the library is thriving!](else-if: $currentPercentage > 0.2)[Good job on maintaining the library](else-if: $currentPercentage > 0)[You are somehow single handedly ruining the Libraries reputation](else:)[...How did you even achieve this?]
+Current Library Score is $libraryScore  out of  $potentialScore
+]
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Look at the visitor {"position":"1850,1250","size":"100,100"}
+//Walking in is a rather portly gentleman, looking around at the library's vast collection with both intrigue and what you suspect is a growing amount of concern. Spotting you though his eyes light up
+//
+"Um, Hello. Would you happen to be a librarian here?"
+
+[[Why yes! The head librarian infact.]]
+
+[[I think so based on what I've just been told]]
+
+[[No.]]
+
+
+:: Look at visitor {"position":"4100,2300","size":"100,100"}
+//It’s Bruce again, and as he approaches, he seems to notice the mysterious stranger walking past, and turns to stare at him. Eventually, he turns back to face you.//
+
+“Hello, I’m back again.”
+
+[[“Was that a friend of yours, you look like you’ve seen a ghost.”]]
+
+[[“How did you like that last book?”]]
+
+
+
+
+:: Michelangelo Bio [menu] {"position":"5100,2000","size":"100,100"}
+''Michelangelo Bio''
+
+Michelangelo di Lodovico Buonarroti Simoni (6 March 1475 – 18 February 1564), known as Michelangelo, was an Italian sculptor, painter, architect, and poet of the High Renaissance. Born in the Republic of Florence, his work was inspired by models from classical antiquity and had a lasting influence on Western art. Michelangelo's creative abilities and mastery in a range of artistic arenas define him as an archetypal Renaissance man, along with his rival and elder contemporary, Leonardo da Vinci. Given the sheer volume of surviving correspondence, sketches, and reminiscences, Michelangelo is one of the best-documented artists of the 16th century. He was lauded by contemporary biographers as the most accomplished artist of his era.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Modernism [menu] {"position":"2200,1900","size":"100,100"}
+Modernism is a philosophical, religious, and arts movement that arose from broad transformations in Western society during the late 19th and early 20th centuries. The movement reflected a desire for the creation of new forms of art, philosophy, and social organization which reflected the newly emerging industrial world, including features such as urbanization, architecture, new technologies, and war. Artists attempted to depart from traditional forms of art, which they considered outdated or obsolete. The poet Ezra Pound's 1934 injunction to "Make it New" was the touchstone of the movement's approach.
+
+Source: Wikipedia
+
+(link-goto: "Return", $lastPassage)
+
+
+:: MysteriaRandoContd1 {"position":"3900,2300","size":"100,100"}
+The stranger hands you the book “Artistic Symbolism.”
+
+“Hello, did you enjoy the book? Do you want to check out anything else?”
+
+//But the stranger is already walking away. As you examine the book, you realize there is something placed between the pages, perhaps a small note, but before you can investigate further, the next visitor approaches.//
+
+[[Look at visitor]]
+
+
+:: Mysterious Rando {"position":"3700,2300","size":"100,100"}
+//You are approached by a man wearing sunglasses another trench coat. They must be having a sale for trench coats somewhere.//
+
+“Greetings. I am here to return this. Goodbye.”
+
+[[Continue|MysteriaRandoContd1]]
+
+
+:: No problem, what are you looking for exactly? {"position":"4600,1200","size":"100,100"}
+"Hmm, I’m a bit new to the art world and like to read about artistic movements and styles. I’m looking for an something inspired by science and philosophy; an art style that evokes feelings of  human progress, but nothing too modern. Can you recommend me something like that, quickly?"
+
+"Hmm, alright how about one of these then. I recommend this one."
+
+[[Check Library|Library Collection]]
+
+[[On Renaissance art|On Renaissance art rec]]
+
+[[On Industrial Revolution art|On Industrial Revolution art rec]]
+
+[[On photography as art form|On photography as art form rec]]
+
+(set: $collectedBooks to it + (a:'On Renaissance art'))
+(set: $collectedBooks to it + (a:'On Industrial Revolution art'))
+(set: $collectedBooks to it + (a:'On photography as art form'))
+
+
+
+
+:: No, no idea really. {"position":"6200,4000","size":"100,100"}
+“I see. I will look into it myself.”
+
+[[Continue|BruceContd8]]
+
+
+
+:: No. {"position":"2050,1450","size":"100,100"}
+//... Are you going to be like this the whole time?//
+
+[[Okay, we'll do it your way game|Look at the visitor]]
+
+[[Yes -> Frustration]]
+
+
+
+:: Of course. What brings you here today? {"position":"5400,3900","size":"100,100"}
+“Well I’m just here for... I’ve just got a bit of a hunch about something. I wanted to ask you a few questions about people who’ve been here.”
+
+[[“This sounds pretty serious.”]]
+
+[[“Oh yeah, I’m part of a detective story, this is so cool!”]]
+
+[[“Have you got a permit for this investigation?”]]
+
+
+:: On Brutalism [menu] {"position":"5500,800","size":"100,100"}
+Brutalist architecture is an architectural style that emerged during the 1950s in the United Kingdom, among the reconstruction projects of the post-war era. Brutalist buildings are characterised by minimalist constructions that showcase the bare building materials and structural elements over decorative design. The style commonly makes use of exposed, unpainted concrete or brick, angular geometric shapes and a predominantly monochrome colour palette; other materials, such as steel, timber, and glass, are also featured. 
+
+Source: Wikipedia
+
+(link-goto: "Return", $lastPassage)
+
+
+:: On Industrial Revolution art [menu] {"position":"4800,800","size":"100,100"}
+The Industrial Revolution, which took place from the late 18th to early 19th century, was a period of significant technological, socio-economic, and cultural changes, and its impact was also reflected in the art of the time. Art from this period often depicted the dramatic transformations that society and landscapes underwent due to industrialization.
+
+Realism: This movement sought to depict life as it was without embellishment or idealization, leading to a shift towards scenes of everyday life, including the working class and the poor. Notable realist artists include Gustave Courbet and Jean-François Millet.
+
+Romanticism: While Realism focused on the harsh realities of industrial society, the Romantic movement sought escape in nature, the sublime, and the exotic. Artists such as J.M.W. Turner and Caspar David Friedrich often depicted powerful natural landscapes, sometimes including elements of industrialization.
+
+Impressionism: This movement, featuring artists like Claude Monet and Edgar Degas, arose in part as a response to the changing urban environment caused by the Industrial Revolution. Impressionists often painted city scenes and landscapes, focusing on the play of light and color, and new leisure activities.
+
+Social Realism and the Ashcan School: In the late 19th and early 20th centuries, artists started portraying the lives of workers and the urban poor, and critiquing social conditions. The Ashcan School in America depicted the realities of life in New York's poorer neighborhoods.
+
+Photography: The Industrial Revolution also saw the invention of photography. As a new art form, it offered a different way of capturing and representing reality and had a significant impact on visual culture.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: On Industrial Revolution art rec {"position":"4800,1300","size":"100,100"}
+"Industrial Revolution art? Hmm, a rather bleak picture of human progress, but still quite interesting, thanks."
+
+[[Continue|DarientContd1]]
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+:: On Minimalism [menu] {"position":"1200,1900","size":"100,100"}
+Minimalism in visual art, generally referred to as "minimal art", "literalist art" and "ABC Art", emerged in New York in the early 1960s as new and older artists moved toward geometric abstraction; exploring via painting in the cases of Nassos Daphnis, Frank Stella, Kenneth Noland, Al Held, Ellsworth Kelly, Robert Ryman and others; and sculpture in the works of various artists including David Smith and Anthony Caro. Judd's sculpture was showcased in 1964 at Green Gallery in Manhattan, as were Flavin's first fluorescent light works, while other leading Manhattan galleries like Leo Castelli Gallery and Pace Gallery also began to showcase artists focused on geometric abstraction.
+
+Minimal art is also inspired in part by the paintings of Barnett Newman, Ad Reinhardt, Josef Albers, and the works of artists as diverse as Pablo Picasso, Marcel Duchamp, Giorgio Morandi, and others. Minimalism was also a reaction against the painterly subjectivity of Abstract Expressionism that had been dominant in the New York School during the 1940s and 1950s.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: On Renaissance art [menu] {"position":"4600,800","size":"100,100"}
+On Rennaisance Art (Source Wikipedia)
+Renaissance art (1350 – 1620 AD[1]) is the painting, sculpture, and decorative arts of the period of European history known as the Renaissance, which emerged as a distinct style in Italy in about AD 1400, in parallel with developments which occurred in philosophy, literature, music, science, and technology. Renaissance art took as its foundation the art of Classical antiquity, perceived as the noblest of ancient traditions, but transformed that tradition by absorbing recent developments in the art of Northern Europe and by applying contemporary scientific knowledge.
+
+Notable Artists: 
+- Leonardo da Vinci (1452–1519)
+- Pinturicchio (1454–1513)
+- Filippino Lippi (1457–1504)
+- Vittore Carpaccio (1465–1526)
+- Bernardino de' Conti (1465–1525)
+- Giorgione (c. 1473–1510)
+- Michelangelo (1475–1564)
+
+Notable Artwork
+- The Last Supper, by Leonardo da Vinci
+- The School of Athens, by Raphael
+- Sistine Chapel ceiling, by Michelangelo
+- Equestrian Portrait of Charles V, by Titian
+- Isenheim Altarpiece, by Matthias Grünewald
+- Melencolia I, by Albrecht Dürer
+
+(link-goto: "Return", $lastPassage)
+
+
+:: On Renaissance art rec {"position":"4800,1100","size":"100,100"}
+"Renaissance Art? That’s perfect actually, thanks a ton! There’s something so magical about that era, it feels like humans really began to realize their potential and it that feeling shines through into the art!"
+
+[[Continue|DarientContd1]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+
+:: On photography as art form [menu] {"position":"5000,800","size":"100,100"}
+Photography as an art form arose from advancements in technology which allowed photographers to manipulate their images to fit their artistic expression. Photographers are able to drastically change the outcome of an image through choosing various cameras, lenses, film, and the framing and timing of a shot. Filters, studio lighting, various darkroom processes, and digital enhancement add even more tools for photographers to manipulate their images. 
+
+Source: Art History 101: Photography as Art Form. (n.d.). SaatchiArt. https://canvas.saatchiart.com/art/art-history-101/photography-as-art-form#:~:text=Photography%20as%20an%20art%20form
+
+(link-goto: "Return", $lastPassage)
+
+
+:: On photography as art form rec {"position":"4800,1500","size":"100,100"}
+"Photography? Well that could be interesting I suppose, but not really what I was looking for."
+
+[[Continue|DarientContd1]]
+
+
+:: Ooh, you look serious. Back on the case, detective? {"position":"5400,4100","size":"100,100"}
+//He glowers at you a little bit. You smile back, unperturbed.//
+
+“Well I’m just here for... I’ve just got a bit of a hunch about something. I wanted to ask you a few questions about people who’ve been here.”
+
+[[“This sounds pretty serious.”]]
+
+[[“Oh yeah, I’m part of a detective story, this is so cool!”]]
+
+[[“Have you got a permit for this investigation?”]]
+
+
+:: Pardon me, I don’t believe I caught your name. My job here is to give book recommendations, I couldn’t really comment on art valuation. {"position":"5500,1500","size":"100,100"}
+"Hmph. Well I guess it isn’t too surprising you’d be ignorant of such things, I’ll simply have to find out myself."
+
+[[Continue|AlastorContd1]]
+
+
+
+:: Photorealism [menu] {"position":"3100,2000","size":"100,100"}
+Photorealism is a genre of art that encompasses painting, drawing and other graphic media, in which an artist studies a photograph and then attempts to reproduce the image as realistically as possible in another medium. Although the term can be used broadly to describe artworks in many different media, it is also used to refer specifically to a group of paintings and painters of the American art movement that began in the late 1960s and early 1970s.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Picasso Bio [menu] {"position":"3400,800","size":"100,100"}
+''Picasso Bio:''
+
+Pablo Ruiz Picasso (25 October 1881 – 8 April 1973) was a Spanish painter, sculptor, printmaker, ceramicist and theater designer who spent most of his adult life in France. One of the most influential artists of the 20th century, he is known for co-founding the Cubist movement, the invention of constructed sculpture, the co-invention of collage, and for the wide variety of styles that he helped develop and explore.
+
+Personal note: Picasso showed a passion and a skill for drawing from an early age. According to his mother, his first words were "piz, piz", a shortening of lápiz, the Spanish word for "pencil". From the age of seven, Picasso received formal artistic training from his father...
+
+Work: (Show the Weeping Woman) Much of Picasso's work of the late 1910s and early 1920s is in a neoclassical style, and his work in the mid-1920s often has characteristics of Surrealism. His later work often combines elements of his earlier styles.
+Exceptionally prolific throughout the course of his long life, Picasso achieved universal renown and immense fortune for his revolutionary artistic accomplishments, and became one of the best-known figures in 20th-century art.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Pierre-Auguste Renoir Bio [menu] {"position":"1300,2800","size":"100,100"}
+''Pierre-Auguste Renoir Bio''
+
+Pierre-Auguste Renoir (25 February 1841 – 3 December 1919) was a French artist who was a leading painter in the development of the Impressionist style. As a celebrator of beauty and especially feminine sensuality, it has been said that "Renoir is the final representative of a tradition which runs directly from Rubens to Watteau."
+
+Renoir's paintings are notable for their vibrant light and saturated color, most often focusing on people in intimate and candid compositions. The female nude was one of his primary subjects. However, in 1876, a reviewer in Le Figaro wrote "Try to explain to Monsieur Renoir that a woman's torso is not a mass of decomposing flesh with those purplish green stains that denote a state of complete putrefaction in a corpse." Yet in characteristic Impressionist style, Renoir suggested the details of a scene through freely brushed touches of colour, so that his figures softly fuse with one another and their surroundings.
+
+A fine example of Renoir's early work and evidence of the influence of Courbet's realism, is Diana, 1867. Ostensibly a mythological subject, the painting is a naturalistic studio work; the figure carefully observed, solidly modeled and superimposed upon a contrived landscape. If the work is a "student" piece, Renoir's heightened personal response to female sensuality is present. The model was Lise Tréhot, the artist's mistress at that time, and inspiration for a number of paintings.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Pointilism [menu] {"position":"700,2800","size":"100,100"}
+''Pointillism''
+
+Pointillism is a technique of painting in which small, distinct dots of colour are applied in patterns to form an image.
+
+Georges Seurat and Paul Signac developed the technique in 1886, branching from Impressionism. The term "Pointillism" was coined by art critics in the late 1880s to ridicule the works of these artists, but is now used without its earlier pejorative connotation. The movement Seurat began with this technique is known as Neo-impressionism. The Divisionists used a similar technique of patterns to form images, though with larger cube-like brushstrokes.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Recommend Abstract art {"position":"700,3400","size":"100,100"}
+“Abstract art? I mean it’s pretty cool but not exactly what I’m looking for. Thanks anyways.”
+
+[[Continue|FlorianContd2]]
+
+
+
+:: Recommend Basics of Impressionism {"position":"1100,2300","size":"100,100"}
+”Well it is impressionism, but not exactly what I was looking for. Can’t have too much of the basics though. Thanks for your help anyways.”
+
+And with that, Evelyn leaves the library
+
+[[Continue|CoraEnct1]] 
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+:: Recommend Biography of Claude Monet {"position":"1100,2100","size":"100,100"}
+”That’s perfect, I hadn’t thought of reviewing the greats, but I’m sure there’ll be something here to take inspiration from.”
+
+[[Continue|EvelynContd3]] 
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+(set: $evelynInspired to true)
+
+
+
+
+:: Recommend Constructivism {"position":"700,3200","size":"100,100"}
+“Constructivism? Hmm maybe there’s something there, I’ll try it out.”
+
+[[Continue|FlorianContd2]]
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+(set: $florianRecs to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 1)]
+
+
+:: Recommend Da Vinci {"position":"3600,1475","size":"100,100"}
+"Da Vinci? A renowned artist and brilliant man to be sure, but... not exactly what I was looking for. I’ll give it a shot anyways.:
+
+(if: $niceToFlorian is true)[[Continue (hint)|FlorianHint]] 
+(if: $niceToFlorian is false)[[Continue|RedoFlorian]]
+
+
+
+
+
+
+:: Recommend Da Vinci Bio {"position":"1500,3400","size":"100,100"}
+“Da Vinci? He’s cool, but not an impressionist painter. Thanks anyways.”
+
+[[“No problem, I guess I got the artists confused sorry. Goodbye.”|EvelynGoodbye]]
+
+
+
+:: Recommend Dall-E {"position":"2450,1250","size":"100,100"}
+"Umm, yes maybe. I believe that was his name. Thank you very much" And with that he shakes your hand and steps out of the library rather hurriedly 
+
+[[Continue|rando1end]]
+
+
+
+:: Recommend Modernism {"position":"2000,2500","size":"100,100"}
+“Modernism? That is the opposite of what I’m looking for, where you listening?
+
+ Sorry, I didn’t mean to come across so harshly, I’m very stressed at the moment. I realize you’re doing your best.”
+ 
+ [[Continue|CoraContd4]] 
+
+
+:: Recommend On Minimalism {"position":"1100,2500","size":"100,100"}
+”Um, well that’s not exactly what I was looking for, sorry I should have been clearer. I’ll find a book myself, thanks for your help.”
+
+And with that, Evelyn leaves the library
+
+[[Continue|CoraEnct1]] 
+
+
+:: Recommend Picasso {"position":"3600,1275","size":"100,100"}
+"Hmm, that’s a pretty decent recommendation, I’d overlooked Picasso. An artist whose well deserved reputation precedes him. Thanks."
+
+(if: $niceToFlorian is true)[[Continue (hint)|FlorianHint]] 
+(if: $niceToFlorian is false)[[Continue|RedoFlorian]]
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+(set: $florianRecs to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $florianRecs to it - 1)]
+
+
+:: Recommend Pierre-Auguste Renoir Bio {"position":"1500,3000","size":"100,100"}
+“Ah Renoir, how could I forget. That’s actually perfect, thanks so much.”
+
+(if: $knowAboutExhibition is true) [ [[Always happy to help. Is this more inspiration for your paintings?]]](else:)[ [[Continue|EvelynGoodbye]]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+
+:: Recommend Pointilism {"position":"700,3000","size":"100,100"}
+“Pointilism? Oh that’s perfect, this is gonna be awesome. I can feel all the ideas I’ve had bouncing around in my head coming together. Thanks a ton!”
+
+[[Continue|FlorianContd2]]
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+(set: $florianRecs to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: Recommend Rembrandt Bio {"position":"1500,3200","size":"100,100"}
+“Rembrandt? He’s cool, but not an impressionist painter. Thanks anyways.”
+
+[[“No problem, I guess I got the artists confused sorry. Goodbye.”|EvelynGoodbye]]
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+:: Recommend Romanticism {"position":"2000,2100","size":"100,100"}
+“Romanticism? Oh that’s excellent, this is exactly what I was looking for, an art style evoking images of gallant heroes and pioneers. You’ve done me a great service, thank you, I can practically feel the stress draining from me.”
+
+[[Continue|CoraContd2]] 
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+(set: $coraLessStress to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+
+:: Recommend Salvador Dali {"position":"3600,1075","size":"100,100"}
+"Dali? ...Perfect, this is exactly what I was looking for, abstract, but with recognizable ideas that really speak to people. And he sounds like a cool guy. Thank you!"
+
+(if: $niceToFlorian is true)[[Continue (hint)|FlorianHint]] 
+(if: $niceToFlorian is false)[[Continue|RedoFlorian]]
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+(set: $florianRecs to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $florianRecs to it - 1)]
+
+
+:: Recommend Surrealism {"position":"2000,2300","size":"100,100"}
+“Surrealism? Well, that’s not exactly what I had in mind... Sorry, I’m a bit stressed, and I know I can come across as harsh. I appreciate the recommendation, and I’m sure I’ll enjoy the book.”
+
+[[Continue|CoraContd3]] 
+
+(set: $libraryScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+(set: $coraLessStress to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 2)]
+
+
+:: RedoFlorian {"position":"4000,1275","size":"100,100"}
+//Nice, would you like redo this encounter though?
+(This is only available for this encounter, as a tutorial)//
+
+[[Yes|FlorianEnct1]] 
+
+[[No|DarienEnct1]]
+
+
+:: Rembrandt Bio [menu] {"position":"1500,2800","size":"100,100"}
+''Rembrandt Bio''
+
+Rembrandt Harmenszoon van Rijn (15 July 1606 – 4 October 1669), usually simply known as Rembrandt, was a Dutch Golden Age painter, printmaker and draughtsman. An innovative and prolific master in three media, he is generally considered one of the greatest visual artists in the history of art. It is estimated Rembrandt produced a total of about three hundred paintings, three hundred etchings and two thousand drawings.
+
+Unlike most Dutch masters of the 17th century, Rembrandt's works depict a wide range of styles and subject matter, from portraits and self-portraits to landscapes, genre scenes, allegorical and historical scenes, biblical and mythological themes and animal studies. His contributions to art came in a period of great wealth and cultural and scientific achievement that historians call the Dutch Golden Age, when Dutch art (especially Dutch painting) was prolific and innovative.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Roll into the day {"position":"300,4200","size":"100,100"}
+//It’s been rather slow this morning, but that’s finally over. It’s so exhausting sitting around all day and telling people what to read. Maybe you’ll go have lunch now, so long as nobody comes up to you...//
+
+(if: $coraLessStressed > 0)[ [[Somebody comes up to you|CoraGoodEnct4]]] (else:) [ [[Somebody comes up to you|CoraBadEnct4]]]
+
+
+:: Romanticism [menu] {"position":"2000,1900","size":"100,100"}
+Romanticism (also known as the Romantic movement or Romantic era) was an artistic and intellectual movement that originated in Europe towards the end of the 18th century. In most parts of Europe, it was at its peak from approximately 1800 to 1850. Romanticism was characterized by its emphasis on emotion and individualism, clandestine literature, and paganism. Romantic thinkers idealized nature, were often suspicious of industrialization and rationalism, and frequently glorified the Middle Ages (as well as other, earlier periods) by depicting them in moralistic, idealized forms. Romanticism was partly a reaction to the Industrial Revolution, and the prevailing ideology of the Age of Enlightenment, especially the scientific rationalization of Nature. It was embodied most strongly in the visual arts, music, and literature; it also had a major impact on historiography, education, chess, social sciences, and the natural sciences. It had a significant and complex effect on politics: Romantic thinking influenced conservatism, liberalism, radicalism, and nationalism.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Salvador Dali Bio [menu] {"position":"3200,800","size":"100,100"}
+''Salvador  Dalí  Bio:''
+
+Salvador Domingo Felipe Jacinto Dalí i Domènech, Marquess of Dalí of Púbol (11 May 1904 – 23 January 1989), known as Salvador Dalí, was a Spanish surrealist artist renowned for his technical skill, precise draftsmanship, and the striking and bizarre images in his work.
+
+Personal note: Dalí frequently traveled with his pet ocelot Babou, even bringing it aboard the luxury ocean liner SS France. He was also known to avoid paying at restaurants by making drawings on the checks he wrote. His theory was the restaurant would never want to cash such a valuable piece of art, and he was usually correct.
+
+Work (Show the Persistence of Memory) ... In 1931, Dalí painted one of his most famous works, The Persistence of Memory, which developed a surrealistic image of soft, melting pocket watches. The general interpretation of the work is that the soft watches are a rejection of the assumption that time is rigid or deterministic. This idea is supported by other images in the work, such as the wide expanding landscape, and other limp watches shown being devoured by ants... 
+(also made a film)
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Score Tracking {"position":"2450,1525","size":"100,100"}
+2 potential points
+
+
+:: Score Tracking 2 {"position":"4000,1525","size":"100,100"}
+4 potential points
+
+
+:: Score tracking 3 {"position":"5100,1600","size":"100,100"}
+5 potential point
+
+
+:: Show Escher’s “Hand with reflecting Sphere” {"position":"3200,1075","size":"100,100"}
+"Yes! I love his explorations into pattern and perspective. I’m a big fan of interpretive, abstract styles in general, and he’s definitely one of the greats."
+
+Agreed, his work captivates the eye and challenges mind. 
+
+[[Are you looking for a book about him?]]
+
+(set: $niceToFlorian to true)
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+
+:: Start Day 7 {"position":"4100,4000","size":"100,100"}
+//The day seems to be passing in a blur. You’re lost in though, thinking about the events of yesterday, about Alastor, and reminiscing on all the decisions you’ve made thus far.
+
+You look up to the sound of humming, and a smile crosses your face when you recognize the easy smile and messy style of Florian.//
+
+[[“Florian! It’s been a while, hows your university project going?”]]
+
+[[“Florian! What’s up, what brings you here today?”]]
+
+
+:: Startup [startup] {"position":"600,1100","size":"100,100"}
+{
+
+(set: $collectedBooks to (a:))
+(set: $days to (a:))
+(set: $libraryScore to 1)
+(set: $tempLibraryScore to 1)
+(set: $possibleScore to 1)
+(set: $currentPercentage to 0)
+
+(set: $lastPassage to "")
+
+(set: $rando1Score to 0)
+
+(set: $niceToFlorian to false)
+(set: $florianRecs to 0)
+
+(set: $niceToAlastor to false)
+(set: $alastorFavour to 0)
+(set: $noteCopied to false)
+(set: $bookHandedOver to false)
+
+(set: $evelynInspired to false)
+(set: $knowAboutExhibition to false)
+
+(set: $coraLessStress to 0)
+(set: $coraAdvice to false)
+
+(set: $darienHeardAdvice to false)
+
+(set: $bruceKnowsImpressionism to false)
+(set: $bruceReconcile to false)
+(set: $bruceKnowsLocation to false)
+(set: $bruceNote to false)
+(set: $bruceBoth to false)
+}
+
+
+:: Suddenly you do recognize her; Evelyn Clarke, an accomplished local artist. As an avid art fan yourself, you’ve seen some of her impressionist pieces. {"position":"700,2400","size":"100,100"}
+“Hello, no bother at all, you said you’re looking for books on impressionist art right? is there anything specifically you’re trying to find?”
+
+[[Continue|EvelynContd2]] 
+
+
+:: Sure, I’d be happy to help. It’s what I’m here for after all. {"position":"3200,1275","size":"100,100"}
+"Thanks!"
+
+[[Continue|FlorianContd1]]
+
+(set: $niceToFlorian to true)
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+
+:: Surreal Surrealism [menu] {"position":"5700,800","size":"100,100"}
+Surrealism is a cultural movement that emerged in Europe after World War I, blending elements of the dream world and reality to create a "super-reality". Led by André Breton, Surrealism produced works across various media including painting, writing, theatre, filmmaking, and photography. The movement was marked by surprising, unexpected elements and illogical scenes, often seen as reflections of the unconscious mind. Despite the striking nature of the visual works, many Surrealists viewed their art primarily as a vehicle for the philosophical tenets of the movement, including the concept of "pure psychic automatism". Breton positioned Surrealism as a revolutionary movement, often linked to political ideologies like communism and anarchism. The term "Surrealism" was first used by Guillaume Apollinaire in 1917, but it wasn't officially established until Breton's Surrealist Manifesto of 1924. Originating in Paris, the movement subsequently influenced art, literature, film, music, political thought, philosophy, and social theory worldwide.
+
+Source: Wikipedia
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Uhhhh, art? That doesn't pay nearly enough {"position":"1450,1050","size":"100,100"}
+//...That's why we're celebrating the promotion, so  just get back to it please.//
+
+[[Fine, but I've got my eye on you game|start]]
+
+
+:: Van Gogh Bio [menu] {"position":"5300,2000","size":"100,100"}
+''Van Gogh Bio''
+
+Vincent Willem van Gogh (30 March 1853 – 29 July 1890) was a Dutch Post-Impressionist painter who posthumously became one of the most famous and influential figures in Western art history. In a period of 10 years, he created about 2,100 artworks, including around 860 oil paintings, most of which date from the last two years of his life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold colours and dramatic, impulsive and expressive brushwork that contributed to the foundations of modern art. Not commercially successful in his career, he struggled with severe depression and poverty, which eventually led to his suicide at age thirty-seven.
+
+(link-goto: "Return", $lastPassage)
+
+
+:: Well, like they say, it’s in the eye of the beholder isn’t it. A piece of art could be a priceless treasure to one person and completely worthless to another. I’d suggest taking a look at different styles to find something that speaks to you. {"position":"5500,1100","size":"100,100"}
+"Well of course the value is all arbitrary. None of this is actually useful for anything, it’s just fancy wallpaper. What I want to know is what determines the price of artwork."
+
+To each their own, but I assure you, art can be deeply meaningful.
+
+[[ Is there nothing at all that interests you?]]
+
+(set: $alastorFavour to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $alastorFavour to it - 1)]
+
+(set: $libraryScore to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $libraryScore to it - 1)]
+
+
+:: Why thank you {"position":"100,2300","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 100%;
+max-height: 100%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_1df9fe68e36e4867a45a72ac08731077~mv2.png/v1/fill/w_801,h_455,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/day%202.png">
+
+<br>
+Another day at the Library. The novelty of being surrounded by so many fascinating books and pieces of artwork has now fully set in, what a dream job! If only it paid a little more...
+
+''Florian'' has a solid direction and has made progress on his final university project
+
+''Darien'' appreciated the recommendation, and had to hurry back to work with the book
+
+''Alastor'' seems a bit disdainful of art in general, but perhaps there’s more going on
+
+[[Continue|Day 2 Start]]
+
+(set: $days to it + (a:'day2'))
+
+
+
+:: Why yes! The head librarian infact. {"position":"2050,1050","size":"100,100"}
+"Oh amazing! Just the man for the job then" He responds rather joyfully. 
+
+"See, my wife recently got into all this art stuff," he waved his hands at all the books surrounding him, "and as much as I'd love to be a part of the conversation when we talk about it, it's rather difficult when I find myself not having the slightest clue what she's talking about" 
+
+Turning back to you, "So that brought me here. See, recently she's been talking about this artist called Dall-E, or was it Dali? Either way, I was hoping you might be able to point me in the right direction to learn more about him."
+
+[[Continue|rando1choice]]
+
+
+
+:: Yah I did, but I’m not going to give it to you now. {"position":"6800,4000","size":"100,100"}
+“... Give me the note.”
+
+[[You give him the note.|BruceContd10]]
+
+(set: $bruceNote to false)
+
+
+
+:: rando1choice {"position":"2250,1150","size":"100,100"}
+//Perfect! Looks like he's looking for books on Dall-E or Dali. Based on the context however, he is likely referring to Salvador Dali, a rather famous surrealist artist. 
+
+Now as the librarian though, it is up to you to decide.//
+
+[[Recommend Salvador Dali|Dali rec 1]]
+
+[[Recommend Dall-E]]
+
+(set: $collectedBooks to it + (a:'Salvador Dali Bio'))
+
+
+
+:: rando1end {"position":"2700,1200","size":"100,100"}
+//"Well, overall that didn't go too bad. You're picking up on the basics at least. You can also always check out the library in the top menu to remember and read more about the books you've found and make more precise suggestions. For now, get to it librarian!"//
+
+[[Continue|FlorianEnct1]] 
+
+(set: $rando1Score to $libraryScore)
+
+
+:: score tracking 4 {"position":"6125,1575","size":"100,100"}
+7 potential points
+
+
+:: start {"position":"1450,1250","size":"100,100"}
+<style> img {
+margin-top: -1em;
+max-width: 60%;
+max-height: 60%;
+} 
+</style>
+
+<img src="https://static.wixstatic.com/media/c85af1_5aea11719ead48998cd872084d102a48~mv2.png/v1/fill/w_455,h_455,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/0_3.png">
+
+<br>
+Congratulations! 
+
+As of (current-date:), you have been promoted to head librarian at the 'Art House of Soho'. Famous world-wide for it's vast collection on art history, the library attracts visitors from all walks of life. 
+
+[[Great! What do I do?]]
+
+[[Uhhhh, art? That doesn't pay nearly enough]]
+
+(set: $days to it + (a:'day1'))
+
+
+
+
+:: “Actually I decided I don’t care, can we get this over with?” {"position":"6300,2300","size":"100,100"}
+“Fine, as you wish.”
+
+[[Continue|AlastorContd2]]
+
+
+:: “Casing? Oh boy we’re using detective speak now.” {"position":"6000,4200","size":"100,100"}
+“Would you please take this seriously. Do you think the art here is at risk?”
+
+(if: $bruceReconcile is true)[ [[“No, none of the art here is original, they’re all just reproductions.”|BruceContd6]]](else:)[ [[“I don’t really know to be honest, I just work here.”|BruceContd7]]]
+
+
+
+:: “Changing up your project? You might want to nail down the focus of it before it gets away from you.” {"position":"500,3300","size":"100,100"}
+“I know, I know, you’re right I’m falling behind schedule. But this should be the last change I make, now I just need to decide on the style. I’m thinking something that’s not too abstract or geometric, but something with a lot of fine detail and small brushstrokes.”
+
+“Hmm, I think this’ll be perfect.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Pointilism]]
+
+[[Recommend Constructivism]]
+
+[[Recommend Abstract art]]
+
+(set: $collectedBooks to it + (a:'Pointilism'))
+(set: $collectedBooks to it + (a:'Constructivism'))
+(set: $collectedBooks to it + (a:'Abstract Art'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: “Eh, I wouldn’t sweat it too much. What kind of book are you looking for today?” {"position":"4800,3300","size":"100,100"}
+“I won’t make you guess today, can you just give me a book about Cubism? It’s something I want to learn about.”
+
+“Ah, Cubism, of course. Here you go.”
+
+[[Check Library|Library Collection]]
+
+[[Handover Cubism|DarienGoodRec]]
+
+[[Recommend Fauvism|DarienBadRec]]
+
+[[Recommend Surrealism|DarienBadRec]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: “Florian! It’s been a while, hows your university project going?” {"position":"4300,3900","size":"100,100"}
+“Going pretty well, it’s done, in fact. It was a bit of a mad rush to finish towards the end, but it all came together at the last second. I was just presenting it yesterday, actually. Thanks for the books, they were pretty key to the project.”
+
+(if: $florianRecs > 1)[ [[“Oh nice, always glad to help. How’d the presentation go?”|FlorianBestRec]]](else-if: $florianRecs > 0)[ [[“Oh nice, always glad to help. How’d the presentation go?”|FlorianGoodRec]]](else:)[ [[“Oh nice, always glad to help. How’d the presentation go?”|FlorianNoRec]]]
+
+
+:: “Florian! What’s up, what brings you here today?” {"position":"4300,4100","size":"100,100"}
+“Hey, what’s up, I just wanted to swing by and thank you for the book recommendations. I finished my final project up and presented it yesterday, and the books you gave me were key.”
+
+(if: $florianRecs > 2)[ [[“Oh nice, always glad to help. How’d the presentation go?”|FlorianBestRec]]](else-if: $florianRecs > 1)[ [[“Oh nice, always glad to help. How’d the presentation go?”|FlorianGoodRec]]](else:)[ [[“Oh nice, always glad to help. How’d the presentation go?”|FlorianNoRec]]]
+
+
+:: “Goodbye.” {"position":"100,5200","size":"100,100"}
+And once again, your day finally comes to an end. 
+
+[[Continue]]
+
+(if: $bruceKnowsLocation is false or $bruceNote is false)[ (set: $bruceBoth to true)]
+
+
+:: “Have you got a permit for this investigation?” {"position":"5600,4200","size":"100,100"}
+“Of course not. But I’m sure you’ve noticed a few shady characters around here lately.”
+
+“Well, I try not to judge but yes.”
+
+[[Continue|“This sounds pretty serious.”]]
+
+
+:: “Hello Darien, can I offer you a book before you go back?” {"position":"1300,4200","size":"100,100"}
+“Sure, this is my manager Cora, although it seems like you two know each other. already. Could I request the same book as her?”
+
+“Of course, here you go.”
+
+[[Hand Darien a copy of the same book as Cora.]]
+
+
+:: “Hello again Darien, you look a little tired, late night? How are you today?” {"position":"4400,3300","size":"100,100"}
+“A little bit of a late night, I’ve just been stressed out by work recently. I’ve gotten my dream job as a visual artist for game design, but it’s not all I thought it would be. My manager’s part of it, she’s fair but also quite harsh.”
+
+[[“That sounds a bit rough.”]]
+
+
+:: “Hello again Darien, you look to be in a good mood. How are you today?” {"position":"4400,3100","size":"100,100"}
+“Thanks, I’m in a great mood honestly, work has been going very well. I’ve recently been put on a new team to design visuals for a game and I’m really excited. Even my manager’s lightened up.”
+
+[[“That’s sounds wonderful, good for you.”]]
+
+
+:: “Hello again Mr. Detective, what can I do for you today?” {"position":"5500,3100","size":"100,100"}
+I told you last time, I’m not a detective, I’m a Private investigator. Former private investigator actually, I also told you I’m retired
+
+[[Retired why? Did you get bored of the job? Or did you partner tragically fake their death and frame you forcing you to go rogue and ultimately uncover their scheme before settling into a well deserved retirement?|BruceCliches]]
+
+
+:: “Hello, you’re Evelyn Clarke right, the impressionist painter? I’m a big fan of your work! It seems like you’re already something of an expert on impressionism, what sort of book are you looking for specifically?” {"position":"700,2200","size":"100,100"}
+“Thank you very much, I really appreciate but I’m far from an expert. I’ve still got a lot to learn."
+
+[[Continue|EvelynContd2]]
+
+
+:: “Hmm I’m not much for advice, I just recommend books.” {"position":"4800,3100","size":"100,100"}
+“Fair enough. I won’t make you guess today, can you give me a book about Cubism? It’s something I want to learn about.”
+
+“Ah, Cubism, of course. Here you go.”
+
+[[Check Library|Library Collection]]
+
+[[Handover Cubism|DarienGoodRec]]
+
+[[Recommend Fauvism|DarienBadRec]]
+
+[[Recommend Surrealism|DarienBadRec]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: “How did you like that last book?” {"position":"4300,2400","size":"100,100"}
+“Turns out, it wasn’t what I was looking for. I’m trying to learn more about the art style that my daughter does. It’s the kind of painting that looks sort of realistic. She always uses really thin brushstrokes, and I’ve heard her talk about Monet and Renoir.”
+
+“Ah perfect, with those clues I know exactly what you’re looking for.”
+
+[[Check Library|Library Collection]]
+
+[[Reccomend Basics of Impressionism|BruceGood2]]
+
+[[Reccomend Romanticism|BruceBad2]]
+
+[[Reccomend Surreal Surrealism|BruceBad2]]
+
+(set: $collectedBooks to it + (a:'Basics of Impressionism'))
+(set: $collectedBooks to it + (a:'Romanticism'))
+(set: $collectedBooks to it + (a:'Surreal Surrealism'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: “In the meantime, do you want a book?” {"position":"4800,2900","size":"100,100"}
+“Yes, actually. I won’t make you guess today, have you got a book about Cubism? It’s something I want to learn about.”
+
+“Ah, Cubism, of course. Here you go.”
+
+[[Check Library|Library Collection]]
+
+[[Handover Cubism|DarienGoodRec]]
+
+[[Recommend Fauvism|DarienBadRec]]
+
+[[Recommend Surrealism|DarienBadRec]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: “I’m glad to hear it’s sparked your imagination. Do you still think art all arbitrary and useless?” {"position":"6300,2100","size":"100,100"}
+“Well obviously paint on pieces of paper isn’t useful for anything itself. At most they’re talking pieces, and yet worth absurd amounts. Which lead me to think, perhaps there’s more to it. Perhaps the value is in the ideas, and the art is merely the medium of expression.”
+
+“That’s right. Or perhaps that’s right for you. The beauty in art is the questions it poses, at least to me anyways. I’m glad you’re starting to find your own meaning. It’s getting a little late, what can I help you find today?”
+
+[[Continue|AlastorContd2]]
+
+(set: $alastorFavour to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $alastorFavour to it - 1)]
+
+
+:: “I’ve actually been thinking about this, since we last spoke.” {"position":"3300,3800","size":"100,100"}
+“I see the value in art as a medium of exchange for ideas. But I’ve also come to see it as an expression of our humanity, a record and an exploration of the absurd beauty of the human experience. But I also think it’s personal, and that everybody should find their own meaning in it.”
+
+“That’s... verbose but also insightful. I always saw art as useless, a hobby for people with too much time, and something with no real utility or purpose.”
+
+“But now... I suppose in the end there is no such thing as inherent meaning in anything, it’s all just arbitrary anyways. And if that’s the case, why shouldn’t we spend our time trying to create things that are beautiful or tragic or moving. I think I’ve found a reason to value art after all.”
+
+[[I’m glad.]]
+
+(set: $alastorFavour to it + 1)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $alastorFavour to it - 1)]
+
+
+:: “I’ve got no idea what you mean. Probably. I wouldn’t want to interfere with anything, I’m just here to help out visitors.” {"position":"2300,4000","size":"100,100"}
+"Well, as you say then. Nonetheless, thank you. Goodbye."
+
+[["Goodbye"|AlastorEnct4]]
+
+
+:: “Maybe so. I’m just doing my job, you know, answering questions and giving out recommendations, you know?” {"position":"2300,3800","size":"100,100"}
+“Well, don’t spread this around but there may be a promotion in that young man’s future, after all is said and done on this project. You should be proud, I’m sure some of his ideas have come from your recommendations. I’ll be going now, goodbye.”
+
+[["Goodbye"|AlastorEnct4]]
+
+
+:: “No, I do this because I enjoy it. And because I find meaning in art. I’ve seen the power art has to positively shape peoples’ lives.” {"position":"3300,4000","size":"100,100"}
+“Truly? Then I’ll ask again, what do you see as the fundamental value of art?”
+
+[[“I’ve actually been thinking about this, since we last spoke.”]]
+
+[[“I changed my mind, I don’t care about art, or your backstory for that matter.”|AlastorBadContd1]]
+
+
+:: “Of course, always happy to help. What brings you in today?” {"position":"2900,3200","size":"100,100"}
+“Hmm, today I was hoping to find something to breathe some new ideas into a work project. I’m in charge of art direction for a game you see, and I’m looking for a new visual style.
+
+(if: $coraLessStress > 0)[ [[“Ah that’s fascinating, how is the project going?”|CoraGoodEnct3]]](else:)[ [[“Ah that’s fascinating, how is the project going?”|CoraBadEnct3]]]
+
+
+:: “Of course, happy to help. You seem to have a lot on your mind, is there anything else you came in for?” {"position":"3100,3800","size":"100,100"}
+“Yes, actually. I’ve been very fascinated by the books you’ve given me. Far more fascinated than expected.”
+
+Alastor continues “I have also quite enjoyed our conversations and your ideas, you remind me of someone I once knew, and I’ve far fewer people to talk to these days. Please, tell me again, why do you believe art is valuable?”
+
+[[“I’ve actually been thinking about this, since we last spoke.”]]
+
+[[“I changed my mind, I don’t care about art, or your backstory for that matter.”|AlastorBadContd1]]
+
+
+:: “Oh yeah, I thought about it, but then I forgot.” {"position":"6800,4200","size":"100,100"}
+//Bruce seems to be trying to decide if you’re worth talking to further.//
+
+[[Continue|BruceContd10]]
+
+
+:: “Oh yeah, I’m part of a detective story, this is so cool!” {"position":"5600,4000","size":"100,100"}
+“Please don’t make this too painful for me.”
+
+[[Continue|“This sounds pretty serious.”]]
+
+
+:: “Ok, but... When?” {"position":"3100,4400","size":"100,100"}
+“When what?”
+
+[[“Sorry, nothing. Just a long day. I’m happy to give out recommendations, it is my job after all.”|“Well, this my job after all. I’m happy to help.”]]
+
+[[“When did I ask.”]]
+
+
+:: “Ooh that sounds really cool, I’m sure your final project will go wonderfully! You’ll have to show me when you’re all done.” {"position":"500,3100","size":"100,100"}
+Sure thing! I’m really excited about it. I just need to figure out what style I’m going to do it in. I’m thinking something that’s not too abstract or geometric. I also had some ideas inspired by pixels, to make it more modern, you know? But that wouldn’t fit well with most painting styles.”
+
+“Hmm, I think this’ll be perfect.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Pointilism]]
+
+[[Recommend Constructivism]]
+
+[[Recommend Abstract art]]
+
+(set: $collectedBooks to it + (a:'Pointilism'))
+(set: $collectedBooks to it + (a:'Constructivism'))
+(set: $collectedBooks to it + (a:'Abstract Art'))
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: “So, uh, do you guys want a book?” {"position":"6500,3200","size":"100,100"}
+“No thanks, I think I’ve got an expert right here I can ask. But I appreciate your help up until now, truly. Goodbye.”
+
+[["Goodbye, and all the best."|Day 5 end]]
+
+
+:: “Sorry about that.” {"position":"6500,3400","size":"100,100"}
+//But Bruce has already left.//
+
+[[Continue|Day 5 end]]
+
+
+:: “That sounds a bit rough.” {"position":"4600,3300","size":"100,100"}
+“It is. I feel like I could be doing a bit more, but I don’t know what”
+
+(if: $coraAdvice is true)[ [[Give Cora's advice]]]
+
+[[“Eh, I wouldn’t sweat it too much. What kind of book are you looking for today?”]]
+
+
+:: “That’s sounds wonderful, good for you.” {"position":"4600,3100","size":"100,100"}
+“The only thing is, I feel like I could be doing even more, but I don’t know what.”
+
+(if: $coraAdvice is true)[ [[Give Cora's advice]]]
+
+[[“Hmm I’m not much for advice, I just recommend books.”]]
+
+
+:: “This sounds pretty serious.” {"position":"5600,3800","size":"100,100"}
+“Has a crime been committed?”
+
+“No, I’m trying to prevent one.”
+
+[[Continue|BruceContd5]]
+
+
+:: “Wait, take this book. Maybe it’ll make your brain grow.” {"position":"2200,3000","size":"100,100"}
+“No. You are terrible at your job. Goodbye"
+
+(if: $coraLessStress > 0)[ [[Continue|CoraGoodEnct2]]](else:)[ [[Continue|CoraBadEnct2]]]
+
+
+:: “Was that a friend of yours, you look like you’ve seen a ghost.” {"position":"4300,2200","size":"100,100"}
+“A ghost? Heh, something like that. I’m sure I’m just paranoid in my retirement. At least that’s what my daughter always tells me.”
+
+[[“Your daughter? Did she not approve of your job as a detective?”]]
+
+
+:: “Well I’m glad to see you two getting on, I guess the power of art really can be transformative.” {"position":"6500,3000","size":"100,100"}
+“Ugh that sounds a bit cheesy, even if it is your job. But thank you for your role in this, I’m sure he didn’t figure it out himself. Goodbye.”
+
+[["Goodbye, and all the best."|Day 5 end]]
+
+
+:: “Well, every person can find their own meaning in it. But I think that art can be meaningful as a means of expressing ideas in a fundamentally human way.” {"position":"6300,2500","size":"100,100"}
+“That’s an intriguing thought. Perhaps... I’ll need to think more on this later. Regardless, I am here for a  book.”
+
+[[Continue|AlastorContd2]]
+
+
+:: “Well, this my job after all. I’m happy to help.” {"position":"3100,4000","size":"100,100"}
+“Is that the only reason you do this, because it’s your job?”
+
+[[“No, I do this because I enjoy it. And because I find meaning in art. I’ve seen the power art has to positively shape peoples’ lives.”]]
+
+[[“Yeah, It’s just a job. Some visitors make it enjoyable, but some... don’t.”|AlastorBadContd1]]
+
+
+:: “What kind of visual style are you looking for?” {"position":"3300,3200","size":"100,100"}
+“Hmm, something geometric, we need a defining motif or art style for our game, something will stand out uniquely, ideally with some repeating form or motif.”
+
+“Ooh, I think I’ve got just the thing for you.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Cubism|CoraGoodRec2]]
+
+[[Recommend Minimalism|CoraBadRec2]]
+
+[[Recommend Abstract art|CoraBadRec2]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: “When did I ask.” {"position":"3300,4400","size":"100,100"}
+"..."
+
+[["..."]]
+
+
+:: “While you’re here, can I also offer you a book, for old times sake maybe?” {"position":"4700,4000","size":"100,100"}
+“Ah thanks but no thanks. Today I’m just here to chat and return this. It was pretty intense grinding out that final project, I think I’m going to take a break and let the creative juices recharge. Thanks again for your help, and goodbye.”
+
+[[“Goodbye.”|BruceEnct7]]
+
+
+:: “Yeah, here you go.” {"position":"6800,3800","size":"100,100"}
+“Thank you. You’ve proven to be quite the asset after all.”
+
+[[Continue|BruceContd10]]
+
+(set: $bruceNote to false)
+
+
+
+:: “Yeah, what a coincidence. Can I give you a book before you leave?” {"position":"1500,4000","size":"100,100"}
+“Sure, can I just get the same book as Cora?”
+
+“Of course, here you go.”
+
+[[Hand Darien a copy of the same book as Cora.]]
+
+
+:: “You look troubled, can I offer you a nice book for these trying times?” {"position":"2200,3200","size":"100,100"}
+“Troubled? Hah. You’ve given me a lot to think about, with your books and your ideas. But... certain things have been set in motion. Nevertheless I have time to grab a book before I depart. I would appreciate learning about an art style that portrays life from a very different perspective.”
+
+[[Check Library|Library Collection]]
+
+[[Recommend Constructivism|AlastorContd5]]
+
+[[Recommend Romanticism|AlastorContd5]]
+
+[[Recommend Modernism|AlastorContd5]]
+
+(set: $potentialScore to it + 2)
+(if: (passage: (history:)'s last)'s tags contains 'menu')[ (set: $potentialScore to it - 2)]
+
+
+:: “You two know each other?” {"position":"1300,4000","size":"100,100"}
+“Yes, we’re co-workers.” Cora replies.
+
+“Cora is my manager at my new job, actually what a coincidence to bump into each other here.”
+
+[[“Yeah, what a coincidence. Can I give you a book before you leave?”]]
+
+
+:: “Your daughter? Did she not approve of your job as a detective?” {"position":"4500,2200","size":"100,100"}
+“I was a Private Investigator, not a detective, but no she didn’t like it. Then again, I never really saw much point in her paintings, either. But that’s why I’m here now, to see if there is something in it.”
+
+[[“How did you like that last book?”]] 
+
+
+:: “You’re welcome. Goodbye.” {"position":"3700,3200","size":"100,100"}
+//And as she leaves the building, your fourth day comes to an end. //
+
+[[Continue|Day 5 start]]
+
+
+:: StoryStylesheet [stylesheet]
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
+
+tw-story {
+  background-color: #ede7dd;
+}
+
+tw-sidebar {
+  visibility: hidden;
+}
+
+
+tw-passage {
+  margin-left: 20%;
+  max-width: 60%;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #372f2d;
+  
+  font-family: 'Source Serif Pro', serif;
+  
+  font-size: 2vh;
+  font-size: 2vw;
+  font-size: 2vmin;
+  line-height: normal;
+}
+
+hr {
+  max-width: 50%;
+}
+
+tw-link {
+  color: #80714a;
+}
+
+tw-link.visited { 
+	color: #80714a;	
+}
+
+.enchantment-link:hover,
+tw-link:hover {
+	color: #D4AB3F;
+}
+
+.enchantment-link:hover,
+tw-link.visited:hover {
+	color: #D4AB3F;
+}
+
+modal-content {
+  color: red;
+}
