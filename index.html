@@ -441,8 +441,20 @@
 
           <div class="info hide" id="animation">
             <h3>Pixel Animations in Processing</h3>
-            <!-- <img src="images/p2.gif"> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <h6>Source code can be found <a href="https://github.com/toremh/Processing-Animation" target="_blank">here</a></h6>       
+            <p></p>
+            <div class="image-cards">
+              <img src="images/a2gif.gif" width="500" height="500">
+              <div class="image-caption">
+                <h4>The animation, titled "A Warm Summer Day"</h4>
+              </div>
+            </div>
+
+            <p>One of the more visually fun software projects I've completed is this animation for a Design course. I won't talk through the design process too much, as I feel the themes and message are fairly clear, and I'll instead talk to the technical side. This was made in Processing, a graphics library and framework for Java, and what made it notable for me was just how much of it had to be built from scratch. </p>
+
+            <p>Processing is a very barebones package, and relies on the painter's algorithm, where every frame begins blank and has pixels drawn to it, overriding existing pixels with the most recent, until the final frame is produced. This extremely simplified approach to graphics required me to build each frame in a very specific order, using masking and various control loops to not only track the progress of each separate animation, but also to coordinate the order of their creation on each frame. Halfway through the project, I realized that my initial, procedural, approach was going to result in an unnecessarily long and messy program, and refactored all of my functions to follow OOP paradigms, which resulted in only about 500 lines of code, rather than the thousand I'd had when only halfway finished.</p>
+
           </div>
 
           <div class="info hide" id="hut">
