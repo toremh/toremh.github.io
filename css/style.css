@@ -524,7 +524,10 @@ nav ul li a {
 }
 
 #project-info video{
-  padding-top: 20px;
+  /* padding-top: 20px; */
+  align-content: center;
+  object-fit: fill;
+  width:100%;
 }
 
 .info{
@@ -558,6 +561,7 @@ nav ul li a {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   width: 80%;
   margin:auto;
+  max-width: 100%;
 }
 
 .image-cards img{
