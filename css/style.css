@@ -516,6 +516,11 @@ nav ul li a {
 
 #project-info p{
   color:#737373;
+  font-size:18px;
+}
+
+#project-info h1{
+  padding-bottom: 20px;
 }
 
 .info{
