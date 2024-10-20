@@ -1,0 +1,5 @@
+.inkwell svg line {
+    stroke: red;
+    opacity: 1;
+    stroke-width: .5px;
+}
